@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    A Chu đối với ngươi nói, ta thích nhất thu thập thiên hạ danh giáp, ngươi có thể giúp ta thỏa mãn cái này tâm nguyện không?
+    <br/>
+    <a href="{{ url(request, receive_url) }}">Tiếp tục</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

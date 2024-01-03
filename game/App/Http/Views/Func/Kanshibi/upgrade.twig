@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi đối {{ role_skill.row.name }} Hiểu biết được đến tăng lên.
+    <br/>
+    {{ role_skill.row.name }}({{ lv }}Cấp/{{ percent }}%)
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

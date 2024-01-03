@@ -1,0 +1,28 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Status/index') }}">Trạng thái cơ thể</a> |
+    <a href="{{ url(request, 'Role/Info/index') }}">Cá nhân tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Contact/index') }}">Trực tuyến liên hệ</a> |
+    <a href="{{ url(request, 'Role/Relation/index') }}">Quan hệ giang hồ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Thing/index') }}">Đồ Đạc</a> |
+    <a href="{{ url(request, 'Role/SpecialThing/index') }}">Đồ Đặc Biệt</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Xinfa/index') }}">Tâm Pháp</a> |
+    <a href="{{ url(request, 'Role/Mission/index') }}">Nhiệm Vụ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Skill/index') }}">Võ Công</a> |
+    <a href="{{ url(request, 'Role/Shop/dj') }}">Shop</a>
+    <br/>
+    江湖帮派 |
+    <a href="{{ url(request, 'Role/Top/index') }}">Xếp Hạng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Mẹo trò chơi</a> |
+    <a href="{{ url(request, 'Role/Activity/index') }}">Sự Kiện</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

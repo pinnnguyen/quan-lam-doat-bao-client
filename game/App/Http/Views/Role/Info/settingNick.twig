@@ -1,0 +1,22 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if action == 'save' %}
+    {{ message }}
+    {% else %}
+    你的昵称： {% if role.nickname %}「{{role.nickname}}」{% else %}未设置{% endif %}<br/>
+    请输入你要修改的昵称：<br/>
+    （1-6个汉字，输入0则为删除昵称）
+    <form method="post" action="{{ url(request, 'Role/Info/saveNickName') }}">
+        <label>
+            <input type="text" name="nickname" placeholder="请输入昵称" style="height: 30px;">
+        </label>
+        <br/>
+        <input type="submit" value="Xác định" style="height: 30px;margin: 10px 0 0 0;">
+    </form>
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Role/Info/setting') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

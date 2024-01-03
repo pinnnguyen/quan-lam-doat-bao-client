@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Chỉ cung tham khảo, chuẩn xác địa điểm yêu cầu chính mình thăm dò:
+<br/>
+Tu hành10 năm dưới: Tân Thủ thôn quảng trường sát mộc nhân; Trường An thành đại bộ phận hệ thống người; cấp võ lâm người mang tin tức truyền tin;
+<br/>
+Tu hành10-50 năm: Sát Trường An thành thủ thành võ tướng; Trường An phía đông Hoa Sơn; Tiếp tục truyền tin;
+<br/>
+Tu hành50-100 năm: Hướng nam đến thành đô phụ cận núi Thanh Thành; hướng nam đi Quảng Châu, sát thủy yên các võ sĩ;
+<br/>
+Tu hành100-500 năm: Hướng tây đi Lan Châu, Ma giáo, sát giáo chúng, hộ giáo; thành đô phụ cận Nga Mi sơn;
+<br/>
+Tu hành500 năm trở lên: Ma giáo, Thiếu Lâm, Ngũ Nhạc cao cấp hệ thống người; Minh Giáo.
+<br/>
+    <a href="{{ url(request, 'Map/WhatCanIDo/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

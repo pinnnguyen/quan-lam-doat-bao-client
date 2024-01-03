@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vô luận đối phương là NPC vẫn là người chơi, hai bên đều sẽ lập tức tiến vào chiến đấu, hơn nữa chiến đấu sẽ liên tục đến một phương chạy trốn hoặc là tử vong. Về chiến đấu kỹ càng tỉ mỉ thuyết minh chờ lát nữa ngươi có thể đi nhìn xem chiến đấu thiên giáo trình.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/5') }}">Trở lại nhân vật tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

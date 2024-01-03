@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi muốn vứt bỏ bao nhiêu{{ role_thing.row.name }}？
+    <form action="{{ url(request, role_thing.throwUrl) }}" method="post">
+        <input type="text" name="number" min="1">
+        <br/>
+        <input type="submit" value="Xác định vứt bỏ">
+    </form>
+    <a href="{{ url(request, role_thing.backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

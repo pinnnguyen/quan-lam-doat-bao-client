@@ -1,0 +1,45 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if o_role_thing.row.is_no_drop %}
+        一{{ o_role_thing.row.unit }}「{{ o_role_thing.row.name }}」
+    {% else %}
+        一{{ o_role_thing.row.unit }}{{ o_role_thing.row.name }}
+    {% endif %}
+    <br/>
+    {% if o_role_thing.row.description is not empty %}
+        {{ o_role_thing.row.description }}
+        <br/>
+    {% endif %}
+    {% if o_role_thing.row.kind == '装备' %}
+        {% if o_role_thing.row.attack %}
+            Lực công kích: {{ o_role_thing.row.attack }}
+            <br/>
+        {% endif %}
+        {% if o_role_thing.row.defence %}
+            Lực phòng ngự: {{ o_role_thing.row.defence }}
+            <br/>
+        {% endif %}
+        {% if o_role_thing.row.dodge %}
+            Né tránh lực: {{ o_role_thing.row.dodge }}
+            <br/>
+        {% endif %}
+        Bền độ: {{ o_role_thing.durability }}/{{ o_role_thing.row.max_durability }}
+        <br/>
+        Mới tinh độ: {{ o_role_thing.statusString }}
+        <br/>
+        {% if o_role_thing.row.is_no_drop %}
+            Đặc hiệu: Không thể rơi xuống
+            <br/>
+        {% endif %}
+    {% endif %}
+    价格：{{ price }}
+    <br/>
+    <a href="{{ url(request, consent_url) }}">Đồng ý giao dịch</a>
+    <br/>
+    <a href="{{ url(request, refuse_url) }}">Cự tuyệt giao dịch</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

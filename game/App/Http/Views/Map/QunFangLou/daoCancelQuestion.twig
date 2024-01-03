@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vị này đại hiệp là không nghĩ giúp tiểu nữ tử thu thập {{ thing.name }}không?
+    <br/>
+    <a href="{{ url(request, cancel_url) }}">Hủy bỏ nhiệm vụ</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Bạn xác định muốn sử dụng{{ price }}mua KNB{{ number }}{{ dj.unit }}{{ dj.name }} không？
+    <br/>
+    <a href="{{ url(request, dj.buyUrl) }}">Xác định mua</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Shop/dj') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

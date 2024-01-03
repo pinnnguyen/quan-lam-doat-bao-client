@@ -1,0 +1,1 @@
+start EasySrv/EasySrv.exe

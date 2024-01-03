@@ -1,0 +1,43 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if mission.circle == 1 or mission.circle == 4 %}
+        Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】Giáo huấn một lần【{{ npc.name }}】，Trở về tại hạ tất có thâm tạ!!
+    {% elseif mission.circle == 2 or mission.circle == 5 %}
+        Nhiệm Vụ: Không biết ai to gan như vậy, tối hôm qua trộm ta 【{{ get_hans_number(mission.gemNumber) }}个{{ gem_name }}】，Ngươi đi giúp ta đủ số truy hồi, tại hạ tất có thâm tạ!! ( sát bất luận cái gì quái nhất định tỷ lệ đạt được vật ấy phẩm, sát đẳng cấp cao hoặc cùng đẳng cấp quái xác suất trọng đại )!!
+    {% elseif mission.circle == 3 %}
+        Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】向【{{ npc.name }}】 Hỏi thăm một ít tình báo，Trở về tại hạ tất có thâm tạ!!
+    {% elseif mission.circle == 6 %}
+        Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】Tìm hiểu một chút tình báo, sau khi trở về tất có thâm tạ!!
+    {% elseif mission.circle == 7 %}
+        Nhiệm Vụ: Vị này đại hiệp, ta đam mê thu thập thiên hạ thần binh lợi khí, ngươi thả đi giúp ta tìm về một {{ thing.unit }}【{{ thing.name }}】，Tại hạ tất có thâm tạ!!!
+    {% endif %}
+    <br/>
+    {% if expired %}
+        Còn thừa thời gian: 0 phút 0 giây ( hết thời gian )
+    {% else %}
+        Thời gian còn lại:{{ time }}
+    {% endif %}
+    <br/>
+    {% if completed %}
+        Trạng thái nhiệm vụ: Đã hoàn thành (vui lòng đến Bai Xiaosheng càng sớm càng tốt để nhận phần thưởng)
+    {% else %}
+        {% if mission.circle == 2 or mission.circle == 5 %}
+            Trạng thái nhiệm vụ: Chưa hoàn thành, vẫn còn thiếu {{ gem_number }} viên
+        {% else %}
+            Nhiệm vụ trạng thái: Chưa hoàn thành ( thỉnh mau chóng hoàn thành nhiệm vụ )
+        {% endif %}
+    {% endif %}
+    <br/>
+    Số vòng nhiệm vụ:{{ mission.times }}
+    <br/>
+    <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}'">Làm mới nhiệm vụ</button>
+    {#    <a href="{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}">Làm mới nhiệm vụ</a> #}
+    <br/>
+    <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/cancelQuestion') }}'">Từ bỏ nhiệm vụ</button>
+    {#    <a href="{{ url(request, 'Map/ConsecutiveMission/cancelQuestion') }}">Từ bỏ nhiệm vụ</a> #}
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

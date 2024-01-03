@@ -1,0 +1,39 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if role_thing.row.is_no_drop %}
+        {% if role_thing.equipped %}□{% endif %}一{{ role_thing.row.unit }}「{{ role_thing.row.name }}」
+    {% else %}
+        {% if role_thing.equipped %}□{% endif %}一{{ role_thing.row.unit }}{{ role_thing.row.name }}
+    {% endif %}
+    <br/>
+    {% if role_thing.row.description is not empty %}
+        {{ role_thing.row.description }}
+        <br/>
+    {% endif %}
+    {% if role_thing.row.attack %}
+        Lực công kích: {{ role_thing.row.attack }}
+        <br/>
+    {% endif %}
+    {% if role_thing.row.defence %}
+        Lực phòng ngự: {{ role_thing.row.defence }}
+        <br/>
+    {% endif %}
+    {% if role_thing.row.dodge %}
+        Né tránh lực: {{ role_thing.row.dodge }}
+        <br/>
+    {% endif %}
+    Bền độ: {{ role_thing.durability }}/{{ role_thing.row.max_durability }}
+    <br/>
+    Mới tinh độ: {{ role_thing.statusString }}
+    <br/>
+    {% if role_thing.row.is_no_drop %}
+        Không thể bỏ được
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, role_thing.fixUrl) }}">Sửa chữa</a>
+    <br/>
+    <a href="{{ url(request, 'Role/SpecialThing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Mua đại mua tiểu, mua định rời tay lâu~
+    <br/>
+    <a href="{{ url(request, 'Func/Gambling/select/1') }}">Áp đại</a> |
+    <a href="{{ url(request, 'Func/Gambling/select/2') }}">Áp tiểu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

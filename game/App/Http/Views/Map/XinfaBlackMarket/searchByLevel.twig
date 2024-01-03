@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh lựa chọn muốn tra tìm tâm pháp cấp bậc:
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel/1') }}">Dưới cấp 40</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel/2') }}">Cấp 40 đến 80</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel/3') }}">Cấp 80 đến 160</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel/4') }}">Cấp 161 đến 320</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel/5') }}">Cấp 320 trở lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/purchaseIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

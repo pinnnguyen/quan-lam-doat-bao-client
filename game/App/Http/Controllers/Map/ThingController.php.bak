@@ -1,0 +1,804 @@
+<?php
+
+
+namespace App\Http\Controllers\Map;
+
+
+use App\Libs\Attrs\FlushRoleAttrs;
+use App\Libs\Helpers;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+use Workerman\Connection\TcpConnection;
+use Workerman\Protocols\Http\Request;
+
+
+/**
+ * 地图物品
+ */
+class ThingController
+{
+    /**
+     * Xem xét地图物品首页
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function index(TcpConnection $connection, Request $request)
+    {
+        /**
+         * 获取物品
+         */
+        $map_things = cache()->hMGet('map_things_' . $request->roleRow->map_id, ['money', 'boxes', 'things', 'xinfas', 'bodies']);
+        $things = [];
+        if ($map_things['money']) {
+            $map_things_money = unserialize($map_things['money']);
+            if ($map_things_money['number'] > 0 or ($map_things_money['is_no_expire'] or $map_things_money['expire'] > time())) {
+                $things[] = ['name' => Helpers::getHansMoney($map_things_money['number']), 'viewUrl' => 'Map/Thing/viewMoney'];
+            }
+        }
+        if ($map_things['boxes']) {
+            $map_things_boxes = unserialize($map_things['boxes']);
+            foreach ($map_things_boxes as $key => $map_things_box) {
+                if ($map_things_box['expire'] > time() and !empty($map_things_box['thing_id'])) {
+                    $thing = Helpers::getThingRowByThingId($map_things_box['thing_id']);
+                    $things[] = ['name' => '一' . $thing->unit . $thing->name, 'viewUrl' => 'Map/Thing/viewBox/' . $key];
+                }
+            }
+        }
+        if ($map_things['bodies']) {
+            $map_things_bodies = unserialize($map_things['bodies']);
+            foreach ($map_things_bodies as $key => $map_things_body) {
+                if ($map_things_body['expire'] > time()) {
+                    if ($map_things_body['expire'] - time() > 180) {
+                        $things[] = ['name' => '一具' . $map_things_body['name'] . '的尸体', 'viewUrl' => 'Map/Thing/viewBody/' . $key];
+                    } elseif ($map_things_body['expire'] - time() > 120) {
+                        $things[] = ['name' => '一具腐烂的尸体', 'viewUrl' => 'Map/Thing/viewBody/' . $key];
+                    } elseif ($map_things_body['expire'] - time() > 60) {
+                        $things[] = ['name' => '一具枯干的尸体', 'viewUrl' => 'Map/Thing/viewBody/' . $key];
+                    } else {
+                        $things[] = ['name' => '一堆骸骨', 'viewUrl' => 'Map/Thing/viewBody/' . $key];
+                    }
+                }
+            }
+        }
+        if ($map_things['things']) {
+            $map_things_things = unserialize($map_things['things']);
+            foreach ($map_things_things as $key => $map_things_thing) {
+                if ($map_things_thing['expire'] > time() and !empty($map_things_thing['thing_id'])) {
+                    $thing = Helpers::getThingRowByThingId($map_things_thing['thing_id']);
+                    $is_protected = $map_things_thing['expire'] - time() > 240 && isset($map_things_thing['protect_role_id']) && $map_things_thing['protect_role_id'] == $request->roleId;
+                    if ($thing->is_no_drop) {
+                        $things[] = ['name' => ($is_protected ? '◇' : '') . '一' . $thing->unit . '「' . $thing->name . '」', 'viewUrl' => 'Map/Thing/viewThing/' . $key];
+                    } else {//⁕
+                        $things[] = ['name' => ($is_protected ? '◇' : '') . '一' . $thing->unit . $thing->name, 'viewUrl' => 'Map/Thing/viewThing/' . $key];
+                    }
+                }
+            }
+        }
+        if ($map_things['xinfas']) {
+            $map_things_xinfas = unserialize($map_things['xinfas']);
+            foreach ($map_things_xinfas as $key => $map_things_xinfa) {
+                if ($map_things_xinfa['expire'] > time() and !empty($map_things_xinfa['xinfa_id'])) {
+                    $xinfa = Helpers::getXinfaRowByXinfaId($map_things_xinfa['xinfa_id']);
+                    $things[] = ['name' => '一本' . $xinfa->name, 'viewUrl' => 'Map/Thing/viewXinfa/' . $key];
+                }
+            }
+        }
+        return $connection->send(\cache_response($request, \view('Map/Thing/index.twig', [
+            'request' => $request,
+            'things'  => $things,
+        ])));
+    }
+
+
+    /**
+     * Xem xét金钱
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function viewMoney(TcpConnection $connection, Request $request)
+    {
+        $map_money = cache()->hGet('map_things_' . $request->roleRow->map_id, 'money');
+        if ($map_money) {
+            $money = unserialize($map_money);
+            if ($money['number'] > 0 or ($money['is_no_expire'] or $money['expire'] > time())) {
+                return $connection->send(\cache_response($request, \view('Map/Thing/viewMoney.twig', [
+                    'request'   => $request,
+                    'money'     => $money,
+                    'pickUpUrl' => 'Map/Thing/pickUpMoney',
+                ])));
+            } else {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Nhặt lên金钱
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function pickUpMoney(TcpConnection $connection, Request $request)
+    {
+        $map_money = cache()->hGet('map_things_' . $request->roleRow->map_id, 'money');
+        if ($map_money) {
+            $money = unserialize($map_money);
+            if ($money['number'] > 0 or ($money['is_no_expire'] or $money['expire'] > time())) {
+                if ($money['expire'] - time() > 240 and $money['protect_role_id'] != 0 and $money['protect_role_id'] != $request->roleId) {
+                    $message = '这不是你的东西';
+                } else {
+                    $role_attrs = Helpers::getRoleAttrsByRoleId($request->roleId);
+                    if ($role_attrs->reviveTimestamp > time()) {
+                        return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                            'request' => $request,
+                            'message' => '你还是一个鬼魂，无法Nhặt lên地上的物品。',
+                        ])));
+                    }
+                    if ($role_attrs->weight + $money['number'] >= 100000000) {
+                        return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                            'request' => $request,
+                            'message' => '你的背包已经满了。',
+                        ])));
+                    }
+                    cache()->hDel('map_things_' . $request->roleRow->map_id, 'money');
+                    $message = '你Nhặt lên了' . Helpers::getHansMoney($money['number']) . '。';
+                    $sql = <<<SQL
+SELECT * FROM `role_things` WHERE `role_id` = $request->roleId AND `thing_id` = 213;
+SQL;
+
+                    $role_thing = Helpers::queryFetchObject($sql);
+                    if ($role_thing) {
+                        $sql = <<<SQL
+UPDATE `role_things` SET `number` = `number` + {$money['number']} WHERE `id` = $role_thing->id;
+SQL;
+
+                    } else {
+                        $sql = <<<SQL
+INSERT INTO `role_things` (`role_id`, `thing_id`, `number`) VALUES ($request->roleId, 213, {$money['number']});
+SQL;
+
+                    }
+
+                    Helpers::execSql($sql);
+
+                    loglog(LOG_PICK_UP_THINGS, '拾取金钱', [
+                        '玩家' => $request->roleRow->name,
+                        '地图' => Helpers::getMapRowByMapId($request->roleRow->id)->name,
+                        '数量' => $money['number'],
+                    ]);
+                    FlushRoleAttrs::fromRoleThingByRoleId($request->roleId);
+                }
+                return $connection->send(\cache_response($request, \view('Map/Thing/pickUpMoney.twig', [
+                    'request' => $request,
+                    'message' => $message,
+                ])));
+            } else {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Xem xét普通物品
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function viewThing(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_things = cache()->hGet('map_things_' . $request->roleRow->map_id, 'things');
+        if ($map_things) {
+            $things = unserialize($map_things);
+            if (empty($things[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($things[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $thing = $things[$key];
+                    $thing['row'] = Helpers::getThingRowByThingId($thing['thing_id']);
+                    if ($thing['row']->kind == '装备') {
+                        if ($thing['status'] > 0) {
+                            $thing['statusString'] = str_repeat('*', $thing['status']);
+                        } else {
+                            $thing['statusString'] = '×';
+                        }
+                    }
+                    return $connection->send(\cache_response($request, \view('Map/Thing/viewThing.twig', [
+                        'request'   => $request,
+                        'thing'     => $thing,
+                        'pickUpUrl' => 'Map/Thing/pickUpThing/' . $key,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Nhặt lên普通物品
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function pickUpThing(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_things = cache()->hGet('map_things_' . $request->roleRow->map_id, 'things');
+        if ($map_things) {
+            $things = unserialize($map_things);
+            if (empty($things[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($things[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $thing = $things[$key];
+                    if ($thing['expire'] - time() > 240 and $thing['protect_role_id'] != 0 and $thing['protect_role_id'] != $request->roleId) {
+                        $message = '这不是你的东西';
+                    } else {
+                        $thing['row'] = Helpers::getThingRowByThingId($thing['thing_id']);
+                        $role_attrs = Helpers::getRoleAttrsByRoleId($request->roleId);
+                        if ($role_attrs->reviveTimestamp > time()) {
+                            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                                'request' => $request,
+                                'message' => '你还是一个鬼魂，无法Nhặt lên地上的物品。',
+                            ])));
+                        }
+                        if ($role_attrs->weight + $thing['row']->weight >= 100000000) {
+                            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                                'request' => $request,
+                                'message' => '你的背包已经满了。',
+                            ])));
+                        }
+                        if ($thing['row']->kind === '装备' and $thing['protect_role_id'] != $request->roleId) {
+                            /**
+                             * 获取上次拾取装备的时间
+                             *
+                             */
+                            $last_time = cache()->get('role_pick_up_equipment_timestamp_' . $request->roleId);
+                            if (empty($last_time) or $last_time < strtotime(date('Y-m-d', time()))) {
+                                /**
+                                 * 清理列表
+                                 *
+                                 */
+                                cache()->del('role_pick_up_equipment_maps_' . $request->roleId);
+                            }
+                            /**
+                             * 判断拾取地图是否超量
+                             *
+                             */
+                            $maps = cache()->sMembers('role_pick_up_equipment_maps_' . $request->roleId);
+                            if (is_array($maps) and count($maps) >= 20 and !in_array($request->roleRow->map_id, $maps)) {
+                                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                                    'request' => $request,
+                                    'message' => '你已在超过20个地图拾取装备，请合理拾取。',
+                                ])));
+                            }
+                            /**
+                             * 设定最后一次拾取时间 地图
+                             *
+                             */
+                            cache()->set('role_pick_up_equipment_timestamp_' . $request->roleId, time());
+                            cache()->sAdd('role_pick_up_equipment_maps_' . $request->roleId, $request->roleRow->map_id);
+                        }
+
+                        unset($things[$key]);
+                        cache()->hSet('map_things_' . $request->roleRow->map_id, 'things', serialize($things));
+//                        if ($thing['row']->kind == '药品') {
+//                            $sql = <<<SQL
+//SELECT * FROM `role_things` WHERE `role_id` = $request->roleId AND `thing_id` = {$thing['thing_id']};
+//SQL;
+//
+//                            $role_thing = Helpers::queryFetchObject($sql);
+//                            if ($role_thing) {
+//                                $sql = <<<SQL
+//UPDATE `role_things` SET `number` = `number` + 1 WHERE `id` = $role_thing->id;
+//SQL;
+//
+//                            } else {
+//                                $sql = <<<SQL
+//INSERT INTO `role_things` (`role_id`, `thing_id`, `number`) VALUES ($request->roleId, {$thing['thing_id']}, 1);
+//SQL;
+//
+//                            }
+//                        } else {
+                        $sql = <<<SQL
+INSERT INTO `role_things` (`role_id`, `thing_id`, `number`, `status`, `durability`) VALUES ($request->roleId, {$thing['thing_id']}, 1, {$thing['status']}, {$thing['durability']});
+SQL;
+
+//                        }
+
+                        Helpers::execSql($sql);
+                        loglog(LOG_PICK_UP_THINGS, '拾取物品', [
+                            '玩家' => $request->roleRow->name,
+                            '地图' => Helpers::getMapRowByMapId($request->roleRow->id)->name,
+                            '物品' => $thing['row']->name,
+                        ]);
+                        $message = '你Nhặt lên了一' . $thing['row']->unit . $thing['row']->name . '。';
+                        FlushRoleAttrs::fromRoleThingByRoleId($request->roleId);
+                    }
+                    return $connection->send(\cache_response($request, \view('Map/Thing/pickUpThing.twig', [
+                        'request' => $request,
+                        'message' => $message,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Xem xét箱子
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function viewBox(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_boxes = cache()->hGet('map_things_' . $request->roleRow->map_id, 'boxes');
+        if ($map_boxes) {
+            $things = unserialize($map_boxes);
+            if (empty($things[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($things[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $thing = $things[$key];
+                    $thing['row'] = Helpers::getThingRowByThingId($thing['thing_id']);
+                    return $connection->send(\cache_response($request, \view('Map/Thing/viewBox.twig', [
+                        'request'   => $request,
+                        'thing'     => $thing,
+                        'pickUpUrl' => 'Map/Thing/pickUpBox/' . $key,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Nhặt lên箱子
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function pickUpBox(TcpConnection $connection, Request $request, string $key)
+    {
+        $role_attrs = Helpers::getRoleAttrsByRoleId($request->roleId);
+        if ($role_attrs->reviveTimestamp > time()) {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '你还是一个鬼魂，无法Nhặt lên地上的物品。',
+            ])));
+        }
+        if ($role_attrs->weight + 1 >= 100000000) {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '你的背包已经满了。',
+            ])));
+        }
+        $map_boxes = cache()->hGet('map_things_' . $request->roleRow->map_id, 'boxes');
+        if ($map_boxes) {
+            $things = unserialize($map_boxes);
+            if (empty($things[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($things[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $thing = $things[$key];
+                    if ($thing['expire'] - time() > 240 and $thing['protect_role_id'] != 0 and $thing['protect_role_id'] != $request->roleId) {
+                        $message = '这不是你的东西';
+                    } else {
+                        unset($things[$key]);
+                        cache()->hSet('map_things_' . $request->roleRow->map_id, 'boxes', serialize($things));
+                        $thing['row'] = Helpers::getThingRowByThingId($thing['thing_id']);
+                        $sql = <<<SQL
+SELECT * FROM `role_things` WHERE `role_id` = $request->roleId AND `thing_id` = {$thing['thing_id']};
+SQL;
+
+                        $role_thing = Helpers::queryFetchObject($sql);
+                        if ($role_thing) {
+                            $sql = <<<SQL
+UPDATE `role_things` SET `number` = `number` + 1 WHERE `id` = $role_thing->id;
+SQL;
+
+                        } else {
+                            $sql = <<<SQL
+INSERT INTO `role_things` (`role_id`, `thing_id`, `number`) VALUES ($request->roleId, {$thing['thing_id']}, 1);
+SQL;
+
+                        }
+
+                        Helpers::execSql($sql);
+
+                        $message = '你Nhặt lên了一' . $thing['row']->unit . $thing['row']->name . '。';
+                        FlushRoleAttrs::fromRoleThingByRoleId($request->roleId);
+                    }
+                    return $connection->send(\cache_response($request, \view('Map/Thing/pickUpBox.twig', [
+                        'request' => $request,
+                        'message' => $message,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Tâm Pháp
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function viewXinfa(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_xinfas = cache()->hGet('map_things_' . $request->roleRow->map_id, 'xinfas');
+        if ($map_xinfas) {
+            $xinfas = unserialize($map_xinfas);
+            if (empty($xinfas[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($xinfas[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $xinfa = $xinfas[$key];
+                    $xinfa['row'] = Helpers::getXinfaRowByXinfaId($xinfa['xinfa_id']);
+                    if ($xinfa['row']->skill_id) {
+                        $xinfa['skill'] = Helpers::getSkillRowBySkillId($xinfa['row']->skill_id);
+                    }
+                    if ($xinfa['row']->sect_id) {
+                        $xinfa['sect'] = Helpers::getSect($xinfa['row']->sect_id);
+                    } else {
+                        $xinfa['sect'] = 'Bình thường bá tánh';
+                    }
+
+                    $xinfa['need_experience'] = $xinfa['lv'] * $xinfa['lv'] * $xinfa['base_experience'];
+
+                    return $connection->send(\cache_response($request, \view('Map/Thing/viewXinfa.twig', [
+                        'request'   => $request,
+                        'xinfa'     => $xinfa,
+                        'pickUpUrl' => 'Map/Thing/pickUpXinfa/' . $key,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Nhặt lên心法
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function pickUpXinfa(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_xinfas = cache()->hGet('map_things_' . $request->roleRow->map_id, 'xinfas');
+        if ($map_xinfas) {
+            $xinfas = unserialize($map_xinfas);
+            if (empty($xinfas[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($xinfas[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $xinfa = $xinfas[$key];
+                    if ($xinfa['expire'] - time() > 240 and $xinfa['protect_role_id'] != 0 and $xinfa['protect_role_id'] != $request->roleId) {
+                        $message = '这不是你的东西';
+                    } else {
+                        $xinfa['row'] = Helpers::getXinfaRowByXinfaId($xinfa['xinfa_id']);
+                        /**
+                         * 判断心法是否大于等于 10 本
+                         */
+                        $sql = <<<SQL
+SELECT `id` FROM `role_xinfas` WHERE `role_id` = $request->roleId;
+SQL;
+
+                        $role_xinfas = Helpers::queryFetchAll($sql);
+                        if (count($role_xinfas) >= 10) {
+                            $message = '你的心法背包已经满了。';
+                        } else {
+                            unset($xinfas[$key]);
+                            cache()->hSet('map_things_' . $request->roleRow->map_id, 'xinfas', serialize($xinfas));
+                            if (empty($xinfa['id'])) {
+                                $sql = <<<SQL
+INSERT INTO `role_xinfas` (`role_id`, `xinfa_id`, `base_experience`, `experience`, `lv`, `max_lv`, `private_name`) VALUES ($request->roleId, {$xinfa['xinfa_id']}, {$xinfa['base_experience']}, {$xinfa['experience']}, {$xinfa['lv']}, {$xinfa['max_lv']}, '{$xinfa['private_name']}');
+SQL;
+                            } else {
+                                $sql = <<<SQL
+INSERT INTO `role_xinfas` (`id`,`role_id`, `xinfa_id`, `base_experience`, `experience`, `lv`, `max_lv`, `private_name`) VALUES ( {$xinfa['id']},$request->roleId, {$xinfa['xinfa_id']}, {$xinfa['base_experience']}, {$xinfa['experience']}, {$xinfa['lv']}, {$xinfa['max_lv']}, '{$xinfa['private_name']}');
+SQL;
+                            }
+                            Helpers::execSql($sql);
+                            loglog(LOG_PICK_UP_THINGS, '拾取心法', [
+                                '玩家'    => $request->roleRow->name,
+                                '地图' => Helpers::getMapRowByMapId($request->roleRow->id)->name,
+                                '数量'    => $xinfa['row']->name,
+                                '原始 ID' => $xinfa['id'] ?? 0,
+                            ]);
+                            $message = '你Nhặt lên了一本' . $xinfa['row']->name . '。';
+                        }
+                    }
+                    return $connection->send(\cache_response($request, \view('Map/Thing/pickUpXinfa.twig', [
+                        'request' => $request,
+                        'message' => $message,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Xem xét尸体
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function viewBody(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_bodies = cache()->hGet('map_things_' . $request->roleRow->map_id, 'bodies');
+        if ($map_bodies) {
+            $bodies = unserialize($map_bodies);
+            if (empty($bodies[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($bodies[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $body = $bodies[$key];
+
+                    if ($body['expire'] - time() > 180) {
+                        $body['name'] = '一具' . $body['name'] . '的尸体';
+                    } elseif ($body['expire'] - time() > 120) {
+                        $body['name'] = '一具腐烂的尸体';
+                    } elseif ($body['expire'] - time() > 60) {
+                        $body['name'] = '一具枯干的尸体';
+                    } else {
+                        $body['name'] = '一堆骸骨';
+                    }
+                    return $connection->send(\cache_response($request, \view('Map/Thing/viewBody.twig', [
+                        'request'   => $request,
+                        'body'      => $body,
+                        'pickUpUrl' => 'Map/Thing/pickUpBody/' . $key,
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+
+
+    /**
+     * Nhặt lên尸体
+     *
+     * @param TcpConnection $connection
+     * @param Request       $request
+     * @param string        $key
+     *
+     * @return bool|null
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function pickUpBody(TcpConnection $connection, Request $request, string $key)
+    {
+        $map_bodies = cache()->hGet('map_things_' . $request->roleRow->map_id, 'bodies');
+        if ($map_bodies) {
+            $bodies = unserialize($map_bodies);
+            if (empty($bodies[$key])) {
+                return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                    'request' => $request,
+                    'message' => '这里什么也没有。',
+                ])));
+            } else {
+                if ($bodies[$key]['expire'] < time()) {
+                    return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                        'request' => $request,
+                        'message' => '这里什么也没有。',
+                    ])));
+                } else {
+                    $role_attrs = Helpers::getRoleAttrsByRoleId($request->roleId);
+                    if ($role_attrs->reviveTimestamp > time()) {
+                        return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                            'request' => $request,
+                            'message' => '你还是一个鬼魂，无法Nhặt lên地上的物品。',
+                        ])));
+                    }
+                    if ($role_attrs->weight + 1000000 >= 100000000) {
+                        return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                            'request' => $request,
+                            'message' => '你的背包已经满了。',
+                        ])));
+                    }
+                    $body = $bodies[$key];
+
+                    unset($bodies[$key]);
+                    cache()->hSet('map_things_' . $request->roleRow->map_id, 'bodies', serialize($bodies));
+
+                    if ($body['expire'] - time() > 180) {
+                        $body['name'] = '一具' . $body['name'] . '的尸体';
+                    } elseif ($body['expire'] - time() > 120) {
+                        $body['name'] = '一具腐烂的尸体';
+                    } elseif ($body['expire'] - time() > 60) {
+                        $body['name'] = '一具枯干的尸体';
+                    } else {
+                        $body['name'] = '一堆骸骨';
+                    }
+                    $sql = <<<SQL
+INSERT INTO `role_things` (`role_id`, `is_body`, `body_name`, `body_expire`) VALUES ($request->roleId, 1, '{$body['name']}', {$body['expire']});
+SQL;
+
+
+                    Helpers::execSql($sql);
+                    FlushRoleAttrs::fromRoleThingByRoleId($request->roleId);
+                    return $connection->send(\cache_response($request, \view('Map/Thing/pickUpBody.twig', [
+                        'request' => $request,
+                        'message' => '你Nhặt lên' . $body['name'] . '。',
+                    ])));
+                }
+            }
+        } else {
+            return $connection->send(\cache_response($request, \view('Base/message.twig', [
+                'request' => $request,
+                'message' => '这里什么也没有。',
+            ])));
+        }
+    }
+}

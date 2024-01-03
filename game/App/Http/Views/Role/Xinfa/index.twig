@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if role_xinfas is not empty %}
+        Trên người của ngươi mang theo dưới đây tâm pháp:
+        <br/>
+        {% for role_xinfa in role_xinfas %}
+            <a href="{{ url(request, role_xinfa.viewUrl) }}">{% if role_xinfa.practiced %}*{% endif %}{% if role_xinfa.equipped %}#{% endif %}{% if role_xinfa.private_name %}{{ role_xinfa.private_name }}của{% endif %}{{ role_xinfa.row.name }}</a>
+            <br/>
+        {% endfor %}
+    {% else %}
+        Trên người của ngươi không có bất luận cái gì tâm pháp!
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

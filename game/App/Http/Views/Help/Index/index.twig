@@ -1,0 +1,43 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【{{ config('Game', 'NAME') }}】
+    <br/>
+    Hướng dẫn cơ bản:
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/1') }}">Hướng dẫn</a> |
+    <a href="{{ url(request, 'Help/Index/description/2') }}">Tiền tệ</a> |
+    <a href="{{ url(request, 'Help/Index/description/3') }}"}">Trang Bị</a> |
+    <a href="{{ url(request, 'Help/Index/description/4') }}">Nhân vật</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/5') }}">Nhiệm vụ</a> |
+    <a href="{{ url(request, 'Help/Index/description/6') }}">Giáo phái</a> |
+    <a href="{{ url(request, 'Help/Index/description/7') }}">Băng nhóm</a> |
+    <a href="{{ url(request, 'Help/Index/description/8') }}">Giao lưu</a>
+    <br/>
+    ========
+    <br/>
+    Hướng dẫn nâng cao:
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/9') }}">Về võ thuật cơ bản</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/10') }}">Về võ thuật đặc biệt</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/11') }}">Về việc nâng cao võ thuật</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/12') }}">Về bí quyết võ thuật</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/13') }}">Về việc đánh giá võ thuật</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/description/14') }}">Về các thiết bị khác</a>
+    <br/>
+    ========
+    <br/>
+    Hướng dẫn bắt đầu:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Hướng dẫn bắt đầu trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi lần đầu tiên tiến vào giang hồ, cho chính mình lấy một cái vang dội tên đi.
+    <br/>
+    Tên vì 2~6 vị giản thể tiếng Trung, thả không được cùng NPC hoặc người chơi khác lặp lại!
+    <br/>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <form action="{{ url(request, 'Map/Primary/name') }}" method="post">
+        <input type="text" name="name">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

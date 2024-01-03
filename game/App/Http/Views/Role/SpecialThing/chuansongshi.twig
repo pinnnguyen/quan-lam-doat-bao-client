@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi muốn dùng truyền tống thạch truyền tống đến 【{{ region }}】-【{{ map.name }}】không？
+    <br/>
+    Số lần dùng:{{ dj.times }}/200
+    <br/>
+    <a href="{{ url(request, cs_url) }}">Truyền tống</a>
+    <br/>
+    <a href="{{ url(request, 'Role/SpecialThing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

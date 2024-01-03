@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi cầm lấy một phen câu cá can, Bắt đầu ngồi ở bên hồ đại thạch đầu thượng câu cá.
+    <br/>
+    <a href="{{ url(request, 'Map/Fishing/start') }}">Bắt đầu câu cá</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if equipment.row.is_no_drop %}
+        「{{ equipment.row.name }}」
+    {% else %}
+        {{ equipment.row.name }}
+    {% endif %}
+    <br/>
+    {{ equipment.row.description }}
+    <br/>
+    {% if equipment.row.attack %}
+        Lực công kích: {{ equipment.row.attack }}
+        <br/>
+    {% endif %}
+    {% if equipment.row.defence %}
+        Lực phòng ngự: {{ equipment.row.defence }}
+        <br/>
+    {% endif %}
+    {% if equipment.row.dodge %}
+        Né tránh lực: {{ equipment.row.dodge }}
+        <br/>
+    {% endif %}
+    Bền độ: {{ equipment.row.max_durability }}
+    <br/>
+    {% if equipment.row.is_no_drop %}
+        Không thể bỏ được
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, equipment.buyUrl) }}">Trang bị/a>
+    <br/>
+    <a href="{{ url(request, 'Role/Shop/equipment') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

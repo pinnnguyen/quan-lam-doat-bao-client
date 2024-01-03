@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ role_skill.name }}
+    <br/>
+    {% if role_skill.is_base == 0 %}
+        {{ role_skill.description }}
+        <br/>
+    {% endif %}
+    {% if role_skill.is_base == 1 %}
+        {% if role_skills is not empty %}
+            Bạn có thể cấu hình các kỹ năng sau:
+            <br/>
+            {% for _role_skill in role_skills %}
+                <a href="{{ url(request, _role_skill.setUrl) }}">{{ _role_skill.name }}({{ _role_skill.lv }}
+                    cấp/{{ get_percent(_role_skill.experience, get_skill_exp(_role_skill)) }}%)</a>
+                <br/>
+            {% endfor %}
+        {% else %}
+            Bạn không học bất kỳ kỹ năng cấu hình nào.
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Skill/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Đây là cảnh Nhà trọ Trường An. Bạn có thể nhấp vào các liên kết khác nhau trong cảnh để tìm hiểu họ làm gì.)
+    <br/>
+    Nhà trọ Trường An
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/3') }}">Ngủ</a>
+    <br/>
+    Bạn đã gặp <a href="{{ url(request, 'Help/Primary/description/1/4') }}">Giang hồ Bách Hiểu Sinh, thanh pháp sư, liễu như yên cùng vô danh khất cái</a>
+    <br/>
+    Hãy chọn hướng đi của bạn:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/10') }}">Tây: Chu Tước đường cái ←</a>
+    <br/>
+    Trường An khách điếm là nhân vật giang hồ lui tới địa phương. Tam đại môn phái đều phái người tới nơi này tranh đoạt tân nhân, bái sư có thể tìm liễu như yên, thanh pháp sư, vô danh khất cái. Ở giang hồ Bách Hiểu Sinh nơi đó có thể lãnh nhiệm vụ.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/16') }}">Trạng thái / lựa chọn</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/17') }}">Nhìn quanh tứ phương</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

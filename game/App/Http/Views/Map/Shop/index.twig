@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% for thing in things %}
+        <a href="{{ url(request, thing.viewUrl) }}">一{{ thing.unit }}{{ thing.name }}({{ get_hans_money(thing.money) }}
+            )</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

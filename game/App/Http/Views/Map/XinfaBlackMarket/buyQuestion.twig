@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Xác định muốn sử dụng {{ get_hans_money(xinfa.sell_price) }} mua sắm này bổn {{ xinfa.row.name }}không？
+    <br/>
+    <a href="{{ url(request, buyUrl) }}">Xác định mua</a>
+    <br/>
+    <a href="{{ url(request, backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

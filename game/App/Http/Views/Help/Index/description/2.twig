@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ tiền loại hình ]
+<br/>
+Trong trò chơi tiền chia làm bốn loại: Đồng tệ, ngân lượng, Hoàng kim, nguyên bảo.
+<br/>
+Tiền đều lấy vật phẩm hình thức tồn tại, người chơi có thể tự do vứt bỏ, nhặt, tiêu hủy, Giao dịch.
+<br/>
+Trong đó nguyên bảo vì trò chơi thương trường chỉ định tiền, nhưng ở thương trường mua sắm đặc thù đạo cụ.
+<br/>
+[ tiền đổi tỉ lệ ]
+<br/>
+Một trăm Văn Đồng tệ = một hai Bạch ngân
+<br/>
+Một trăm lượng Bạch ngân = một hai Hoàng kim
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

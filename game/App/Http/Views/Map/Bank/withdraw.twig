@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngài ở tệ hiệu buôn cùng tồn tại có{{ get_hans_money(balance) }}。
+    <br/>
+    Ngươi muốn lấy ra nhiều ít{{ unit }}？
+    <br/>
+    Nhập số lượng:
+    <form action="{{ url(request, withdrawPostUrl) }}" method="post">
+        <input type="text" name="number" placeholder="Vui lòng nhập số lượng" min="1" maxlength="9">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Bank/withdrawIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

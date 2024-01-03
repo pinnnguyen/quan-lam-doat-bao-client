@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Điểm đánh ngươi muốn học tập võ công: Thí dụ như, ngươi trước điểm đánh “Cơ bản kiếm pháp”
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/7') }}">Cơ bản kiếm pháp(40 cấp /0%)</a>
+    <br/>
+    □ hồi phong phất liễu kiếm (40 cấp /0%)
+    <br/>
+    Ta kỹ năng
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vị tiểu huynh đệ này, thỉnh giúp ta đem này phong thư đưa cho 【{{ map.name }}】 của 【{{ npc.name }}】。
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Bây giờ nếu tôi là đám mây đang nói chuyện với bạn, bạn sẽ nhận được thông báo sau.
+     <br/>
+     (13:53) [Friend] Tôi là Yun: Xixi Trả lời Thêm bạn Thêm vào danh sách đen
+     <br/>
+     Bấm Reply để trả lời Tôi là Cloud, bấm Thêm bạn để Thêm bạn cô ấy, bấm Thêm vào danh sách đen để chặn tin nhắn Tôi là Cloud gửi cho bạn như QQ.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

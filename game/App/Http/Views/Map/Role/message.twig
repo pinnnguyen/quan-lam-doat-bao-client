@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi tưởng đối {{ role_row.name }} nói cái gì?
+    <form action="{{ url(request, send_url) }}" method="post">
+        <label>
+            <input type="text" name="content">
+        </label>
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

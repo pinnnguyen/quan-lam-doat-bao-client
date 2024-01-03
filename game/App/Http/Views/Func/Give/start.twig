@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if gives is empty %}
+        当前没有可赠送的物品。
+        <br/>
+    {% else %}
+        你身上带著下列这些东西，你要给{{ o_role_row.name }}什么东西？
+        <br/>
+        {% for give in gives %}
+            <a href="{{ url(request, give.url) }}">{{ give.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

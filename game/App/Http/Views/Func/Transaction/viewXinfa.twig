@@ -1,0 +1,33 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ number }}{{ o_role_xinfa.row.unit }}{{ o_role_xinfa.row.name }}
+    <br/>
+    {{ o_role_xinfa.row.description }}
+    <br/>
+    Loại hình: {{ o_role_xinfa.row.kind }}Tâm pháp
+    <br/>
+    Sở cần tu hành: {{ get_hans_number(o_role_xinfa.row.experience) }}Năm
+    <br/>
+    {% if o_role_xinfa.row.skill_id %}
+        Sở cần kỹ năng: {{ o_role_xinfa.row.skill_lv }}Cấp{{ o_role_xinfa.skill.name }}
+        <br/>
+    {% endif %}
+    Môn phái: {{ o_role_xinfa.sect }}
+    <br/>
+    Kinh nghiệm: {{ o_role_xinfa.experience }}/{{ o_role_xinfa.need_experience }}
+    <br/>
+    Cấp bậc: {{ o_role_xinfa.lv }}
+    <br/>
+    Lớn nhất cấp bậc: {{ o_role_xinfa.max_lv }}
+    <br/>
+    Giá cả:{{ price }}
+    <br/>
+    <a href="{{ url(request, consent_url) }}">Đồng ý giao dịch</a>
+    <br/>
+    <a href="{{ url(request, refuse_url) }}">Cự tuyệt giao dịch</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

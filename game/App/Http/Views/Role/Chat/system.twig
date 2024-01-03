@@ -1,0 +1,24 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Chat/system') }}">Làm mới</a> |
+    <a href="{{ url(request, 'Role/Chat/index') }}">Chuyển Kênh</a>
+    <br/>
+    【Kênh Hệ Thống】
+    <br/>
+    {% if chat_logs is not empty %}
+        {% for chat_log in chat_logs %}
+            ({{ chat_log.date_time }}){{ chat_log.content }}
+            <br/>
+        {% endfor %}
+    {% else %}
+        Kênh Hệ Thống không có nội dung.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, last_page) }}">Trang Trước</a>
+    <a href="{{ url(request, next_page) }}">Trang Sau</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Chat/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

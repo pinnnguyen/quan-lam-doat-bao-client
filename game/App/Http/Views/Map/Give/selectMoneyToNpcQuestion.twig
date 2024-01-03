@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi phải cho 【{{ npc.name }}】bao nhiêu tiền？(1 là một Đồng tiền, 100 là một lượng Bạch ngân và 10.000 là một lượng Hoàng kim.)
+    <form action="{{ url(request, role_thing.give_url) }}" method="post">
+        <input type="text" name="number" min="1">
+        <br/>
+        <input type="submit" value="Xác định cho đi">
+    </form>
+    <a href="{{ url(request, role_thing.back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

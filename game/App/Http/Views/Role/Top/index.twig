@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【Xếp Hạng bảng】
+    <br/>
+    <a href="{{ url(request, 'Role/Top/GaoShou/1') }}">Cao thủ nhiều như mây</a> |
+    <a href="{{ url(request, 'Role/Top/JueShi/1') }}">Tuyệt thế mỹ nữ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/wuGong/1') }}">Võ công cái thế</a> |
+    <a href="{{ url(request, 'Role/Top/FengLiu/1') }}">Phong lưu phóng khoáng</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/FuJia/1') }}">Phú giáp thiên hạ</a> | <a href="{{ url(request, 'Role/Top/LengXue/1') }}">Máu lạnh sát thủ</a>
+
+    <br/>
+    <a href="{{ url(request, 'Role/Top/XinFa/1') }}">Tâm pháp đứng hàng</a> | <a href="{{ url(request, 'Role/Top/Vip') }}">VIP đứng hàng</a>
+    <br/>
+
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

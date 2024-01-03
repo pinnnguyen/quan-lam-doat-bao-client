@@ -1,0 +1,10 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    假如你的Chạy trốn系数设定为50%，当你和别人发生战斗时，Sinh mệnh值小于最大值50%时，系统会帮你自动下Chạy trốn指令。玩家可以根据战斗的危险程度，以及网速来设定自己合理的设置Chạy trốn系数。
+
+    <br/>
+    <a href="{{ url(request, 'Role/Info/setting') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi nằm thượng hàn giường ngọc, chỉ cảm thấy lạnh băng đến xương, nội lực vận chuyển một vòng sau, dần dần triệt tiêu hơn phân nửa lạnh lẽo.
+    <br/>
+    Ngươi{{ role_skill.row.name }}Được đến tăng lên.
+    <br/>
+    {{ role_skill.row.name }}({{ lv }}Cấp/{{ percent }}%)
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

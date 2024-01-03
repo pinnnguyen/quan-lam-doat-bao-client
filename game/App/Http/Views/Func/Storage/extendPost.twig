@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi sử dụng một cây tơ vàng gỗ nam xây dựng thêm kho hàng. Kho hàng dung lượng gia tăng rồi 100 cách.
+    <br/>
+    <a href="{{ url(request, 'Func/Storage/extendPost') }}">Tiếp tục sử dụng</a>
+    <br/>
+    <a href="{{ url(request, 'Func/Storage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

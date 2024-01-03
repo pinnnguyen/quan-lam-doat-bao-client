@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi vứt bỏ {{ get_hans_money(number) }}。
+    <br/>
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

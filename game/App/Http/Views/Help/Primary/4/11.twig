@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Nếu hợp tác thành công, hệ thống sẽ đưa ra lời nhắc sau:
+    <br/>
+    "Kiếm Gió Thổi Liễu và kiếm thuật cơ bản được kết hợp thành công."
+    <br/>
+    Điều này kết thúc hướng dẫn này.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

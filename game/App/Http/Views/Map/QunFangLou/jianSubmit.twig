@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Khang mẫn cao hứng mà tiếp nhận {{ thing.name }}, đưa cho ngươi một cái màu xanh lục tiểu thuốc viên, nói: “Cảm ơn ngươi giúp ta hoàn thành tâm nguyện, đây là cho ngươi khen thưởng.”
+Ngươi tiếp nhận thuốc viên, ngửa đầu ăn vào, ngươi công lực gia tăng rồi. ( Ngươi tu luyện được {{ experience }}Tu hành{% if reward is not empty %}{{ reward }}{% endif %}。）
+    <br/>
+    <a href="{{ url(request, continue_url) }}">Tiếp tục</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

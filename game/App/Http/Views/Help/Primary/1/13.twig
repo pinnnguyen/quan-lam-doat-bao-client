@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Hãy nhìn xem, thanh kiếm tre này đã ở trên người bạn rồi. Vì vật phẩm có trọng lượng nên khả năng chịu tải của bạn trở thành 2%. Khi chiến đấu với khả năng chịu tải lớn hơn 50%, bạn sẽ bị thua. Hãy nhấp vào liên kết. đối với mặt hàng này, bạn có thể xem thuộc tính của nó và sử dụng nó, bạn chưa thử sao?)
+    <br/>
+    Trọng lượng: 2%
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/14') }}">Một phen trúc kiếm</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

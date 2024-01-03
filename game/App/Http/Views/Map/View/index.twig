@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if chars is not empty %}
+        {% for char in chars %}
+            <a href="{{ url(request, char.viewUrl) }}">{{ char.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

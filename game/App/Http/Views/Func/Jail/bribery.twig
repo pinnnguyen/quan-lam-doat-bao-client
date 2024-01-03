@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Hay không tiêu phí{{ get_hans_money(money) }},Hối lộ ngục tốt?
+    <br/>
+    <a href="{{ url(request, 'Func/Jail/briberyPost') }}">Xác định</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

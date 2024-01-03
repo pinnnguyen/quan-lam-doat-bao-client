@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trong trò chơi có ba cái cơ sở môn phái
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/24') }}">Ngũ Nhạc kiếm phái</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/25') }}">Thiếu Lâm</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/26') }}">Ma giáo</a>
+    <br/>
+    Trừ bỏ trở lên ba cái cơ sở môn phái ngoại, trong chốn giang hồ còn có không ít che giấu môn phái đặc thù môn phái, cần người chơi tự hành thăm dò.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

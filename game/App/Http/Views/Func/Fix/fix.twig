@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi đem {{ thing.row.name }}Đưa cho thợ rèn. Chỉ thấy thợ rèn cầm lấy công cụ một trận leng keng leng keng……
+    <br/>
+    Theo sau thợ rèn nói: “Vị này đại hiệp, ngài{{ thing.row.name }}Sửa được rồi.”
+    <br/>
+    Ngươi nhìn nhìn, vừa lòng mà móc ra {{ price }}。
+    <br/>
+    <a href="{{ url(request, 'Func/Fix/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ get_hans_number(dj.number) }}{{ dj.row.unit }}{{ dj.row.name }}
+    <br/>
+    {{ dj.row.description }}
+    <br/>
+    {% if dj.dj_id == 6 %}
+        Số lần dùng:{{ dj.times }}次
+    {% else %}
+        {{ dj.row.status }}
+    {% endif %}
+    <br/>
+    Đặc hiệu: Không thể rơi xuống
+    <br/>
+    Hiệu ứng đặc biệt: không thể loại bỏ
+    <br/>
+    Hiệu ứng: Không thể giao dịch
+    <br/>
+    Hiệu ứng đặc biệt: Không thể đưa ra
+    <br/>
+    {% if dj.useUrl is not empty %}
+        {% if dj.dj_id == 7 %}
+            <a href="{{ url(request, dj.useUrl) }}">Đánh dấu bản đồ hiện tại</a>
+            <br/>
+        {% else %}
+            <a href="{{ url(request, dj.useUrl) }}">Sử dụng</a>
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/SpecialThing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

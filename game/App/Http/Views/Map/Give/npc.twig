@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trên người của ngươi mang theo dưới đây có thể đưa tặng Vật phẩm:
+    <br/>
+    Vui lòng chọn vật phẩm muốn tặng 【{{ npc.name }}】。
+    <br/>
+    {% for role_thing in role_things %}
+        <a href="{{ url(request, role_thing.give_question_url) }}">
+            {% if role_thing.is_letter %}
+                Một phong thư
+            {% elseif role_thing.thing_id == 213 %}
+                {{ get_hans_money(role_thing.number) }}
+            {% else %}
+                {% if role_thing.row.is_no_drop %}
+                    {{ get_hans_number(role_thing.number) }}{{ role_thing.row.unit }}「{{ role_thing.row.name }}」
+                {% else %}
+                    {{ get_hans_number(role_thing.number) }}{{ role_thing.row.unit }}{{ role_thing.row.name }}
+                {% endif %}
+            {% endif %}
+        </a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

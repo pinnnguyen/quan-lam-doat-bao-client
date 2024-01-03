@@ -1,0 +1,25 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【高手如云】
+    <br/>
+    {% for top in tops %}
+        {% if top.online %}
+            Đệ{{ top.top }}Danh：<a href="{{ url(request, top.viewUrl) }}">{{ top.name }}</a>（{{ top.value }}）
+        {% else %}
+            Đệ{{ top.top }}Danh：{{ top.name }}（{{ top.value }}）
+        {% endif %}
+        <br/>
+    {% endfor %}
+    {% if next %}
+        <a href="{{ url(request, 'Role/Top/GaoShou/2') }}">Trang Sau</a>
+        <br/>
+    {% endif %}
+    {% if second %}
+        <a href="{{ url(request, 'Role/Top/GaoShou/1') }}">Trang Trước</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Top/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

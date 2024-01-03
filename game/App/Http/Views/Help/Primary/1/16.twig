@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trong menu trạng thái/tùy chọn, bạn có thể xem các thuộc tính, trang bị khác nhau của mình và giao tiếp với những người chơi khác. Chúng tôi sẽ giải thích chi tiết các chức năng này cho bạn trong các hướng dẫn sau.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

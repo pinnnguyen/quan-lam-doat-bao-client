@@ -1,0 +1,42 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <img src="{{ config('Game', 'LOGO') }}" alt="LOGO" width="160px" height="100px"/>
+    <br/>
+    {% if message is not empty %}
+        <span style="color: #ff0000;">{{ message }}</span>
+        <br/>
+    {% endif %}
+    <form method="post">
+        Số điện thoại: (Bắt đầu bằng 1, 10 số tiếp theo)
+        <br/>
+        <label>
+            <input type="text" name="phone">
+        </label>
+        <br/>
+        Tài khoản:
+        <br/>
+        <label>
+            <input type="text" name="username">
+        </label>
+        <br/>
+        Mật khẩu:
+        <br/>
+        <label>
+            <input type="text" name="password">
+        </label>
+        <br/>
+        Nhập lại mật khẩu:
+        <br/>
+        <label>
+            <input type="text" name="password_confirm">
+        </label>
+        <br/>
+        <input type="submit" value="Đăng ký">
+    </form>
+    Bạn đã có một tài khoản chưa?&nbsp;<a href="login">Bấm để đăng nhập</a>
+    <br/>
+    * Tên người dùng dài 6-16 ký tự và có thể bao gồm số, chữ cái và ký tự tiếng Trung.
+    <br/>
+    * Mật khẩu dài 6-16 ký tự và có thể bao gồm chữ hoa, chữ thường và số.
+{% endblock %}

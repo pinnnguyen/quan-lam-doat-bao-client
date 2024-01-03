@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Bạn cần tốn bao nhiêu năng lượng và máu để trau dồi nội lực?
+    <br/>
+    (Tu luyện nội lực là chuyển khí huyết, tức là giá trị sinh mạng, thành nội lực. Khi tu luyện nội lực, giá trị hiện tại của nội lực sẽ tăng lên. Khi tăng gấp 2 lần giá trị tối đa, giá trị tối đa của nội lực sẽ tăng thêm 1. Mỗi lần sử dụng Khí Càng có nhiều máu thì nội lực sinh ra càng nhiều và tất nhiên sức khỏe của bạn cũng sẽ giảm.)
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/3') }}">Trở lại Trạng thái cơ thể</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

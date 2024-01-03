@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi cùng nhau tu luyện {{ get_hans_number(role_skills_count) }} kỹ năng:
+    <br/>
+    {% for role_skill in role_skills %}
+        <a href="{{ url(request, role_skill.viewUrl) }}">{% if role_skill.set %}□{% endif %}{{ role_skill.name }}
+            ({{ role_skill.lv }} cấp/{{ role_skill.percent }}%)</a>
+        <br/>
+    {% endfor %}
+    Hãy click vào loại võ cơ bản để cấu hình võ công.
+    <br/>
+    Con số bên trái trong ngoặc sau tên võ học biểu thị cấp độ của võ học, còn con số bên phải là tỷ lệ phần trăm nâng cấp của cấp độ này.
+    <br/>
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

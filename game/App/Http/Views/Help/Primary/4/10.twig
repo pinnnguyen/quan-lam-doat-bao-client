@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Lúc này sẽ liệt kê ra danh sách các võ kỹ đặc biệt có thể kết hợp với kiếm kỹ cơ bản, vui lòng nhấp vào "Thuyết Phong Liễu Liễu Thu Hồi" để Thu Phục Phong Liễu Liễu hoạt động với kiếm thuật cơ bản.
+    <br/>
+    Những kỹ năng đặc biệt nào bạn nên sử dụng kết hợp với các kỹ năng kiếm cơ bản:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/11') }}">Trả lại Phong Liễu Kiếm (Cấp 2/0%)</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

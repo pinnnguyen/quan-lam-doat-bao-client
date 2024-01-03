@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi bán đi một {{ role_thing.row.unit }}{{ role_thing.row.name }}。
+    <br/>
+    Đạt được {{ get_hans_money(role_thing.sellPrice) }} ,Đã tự động tồn nhập tiền trang.
+    <br/>
+    <a href="{{ url(request, 'Map/Shop/sellIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

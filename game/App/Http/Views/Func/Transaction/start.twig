@@ -1,0 +1,22 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi hiện tại cùng{{ o_role_row.name }}Giao dịch
+    <br/>
+    <a href="{{ url(request, trade_xinfa_url) }}">Giao dịch tâm pháp</a>
+    <br/>
+    {% if transactions is empty %}
+        Trước mặt không có nhưng giao dịch vật phẩm.
+        <br/>
+    {% else %}
+        Thỉnh lựa chọn ngươi muốn giao dịch vật phẩm:
+        <br/>
+        {% for transaction in transactions %}
+            <a href="{{ url(request, transaction.url) }}">{{ transaction.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi thật sự muốn từ bỏ trước mặt nhiệm vụ không? Liên tục nhiệm vụ hoàn số sẽ bị thanh linh.
+    <br/>
+    <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/cancel') }}'">Từ bỏ</button>
+    {#    <a href="{{ url(request, 'Map/ConsecutiveMission/cancel') }}">Từ bỏ</a> #}
+    <br/>
+    <a href="{{ url(request, 'Map/ConsecutiveMission/view') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

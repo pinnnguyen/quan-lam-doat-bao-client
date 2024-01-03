@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if message is not empty %}
+        {{ message }}
+        <br/>
+    {% endif %}
+    {% if messages is not empty %}
+        {% for msg in messages %}
+            {{ msg }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

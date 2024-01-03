@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trong bóng đêm, đột nhiên bên tai truyền đến “Xuy xuy” tiếng xé gió!
+    <br/>
+    Nguyên lai là phòng luyện công trung cơ quan phóng ra ra ám khí.
+    <br/>
+    Ngươi chống đỡ không kịp, bị ám khí đánh trúng.
+    <br/>
+    <a href="{{ url(request, 'Func/Liangong/chen') }}">Tiếp tục luyện công</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

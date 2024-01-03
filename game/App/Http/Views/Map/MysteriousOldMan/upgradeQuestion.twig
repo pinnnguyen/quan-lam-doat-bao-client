@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trước mặt {% if role_xinfa.private_name %}{{ role_xinfa.private_name }} của {% endif %}{{ role_xinfa.row.name }} Lớn nhất cấp bậc vì {{ role_xinfa.max_lv }} cấp
+    <br/>
+    Tăng lên vì {{ role_xinfa.next_max_lv }} cấp yêu cầu {{ role_xinfa.money }}Hai Bạch ngân
+    <br/>
+    Yêu cầu Bạch ngân sẽ trực tiếp từ tiền trang khấu trừ
+    <br/>
+    <a href="{{ url(request, role_xinfa.upgradeUrl) }}">Xác định tăng lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/MysteriousOldMan/upgradeList') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

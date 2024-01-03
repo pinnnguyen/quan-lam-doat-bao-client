@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi cầm lấy một khối bổ kim thạch, chuẩn bị tu bổ nào kiện trang bị?
+    <br/>
+    {% for role_thing in role_things %}
+        {% if role_thing.row.is_no_drop %}
+            <a href="{{ url(request, role_thing.viewUrl) }}">{% if role_thing.equipped %}□{% endif %}
+                一{{ role_thing.row.unit }}「{{ role_thing.row.name }}」</a>
+        {% else %}
+            <a href="{{ url(request, role_thing.viewUrl) }}">{% if role_thing.equipped %}□{% endif %}
+                一{{ role_thing.row.unit }}{{ role_thing.row.name }}</a>
+        {% endif %}
+        <br/>
+    {% endfor %}
+    {% if dj.useUrl is not empty %}
+        <a href="{{ url(request, dj.useUrl) }}">Sử dụng</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/SpecialThing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ thing.name }}
+    <br/>
+    {% if thing.description is not empty %}
+        {{ thing.description }}
+        <br/>
+    {% endif %}
+    {% if thing.kind == '装备' %}
+        {% if thing.attack %}
+            Lực công kích: {{ thing.attack }}
+            <br/>
+        {% endif %}
+        {% if thing.defence %}
+            Lực phòng ngự: {{ thing.defence }}
+            <br/>
+        {% endif %}
+        {% if thing.dodge %}
+            Né tránh lực: {{ thing.dodge }}
+            <br/>
+        {% endif %}
+        {% if thing.max_durability %}
+            Bền độ: {{ thing.max_durability }}/{{ thing.max_durability }}
+            <br/>
+        {% endif %}
+    {% endif %}
+    Giá cả: {{ get_hans_money(thing.money) }}
+    <br/>
+    Bạn muốn mua bao nhiêu{{ thing.unit }}{{ thing.name }}？
+    <form action="{{ url(request, buyUrl) }}" method="post">
+        Đưa vào số lượng: <input type="text" name="number" min="1" maxlength="9" size="6">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, buyAUrl) }}">1{{ thing.unit }}</a> |
+    <a href="{{ url(request, buyFiveUrl) }}">5{{ thing.unit }}</a> |
+    <a href="{{ url(request, buyTwentyUrl) }}">20{{ thing.unit }}</a> |
+    <a href="{{ url(request, buyFiftyUrl) }}">50{{ thing.unit }}</a>
+    <br/>
+    <a href="{{ url(request, backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

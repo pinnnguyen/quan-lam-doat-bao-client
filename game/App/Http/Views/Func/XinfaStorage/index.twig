@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Kho hàng dung lượng:{{ count }}/{{ request.roleRow.xinfa_storage }}
+    <a href="{{ url(request, 'Func/XinfaStorage/extendQuestion') }}">Mở rộng kho hàng</a>
+    <br/>
+    {% if xinfas is empty %}
+        ơi kho hàng rỗng tuếch.
+        <br/>
+    {% else %}
+        Ngài muốn lấy ra dưới này đó tâm pháp?
+        <br/>
+        {% for xinfa in xinfas %}
+            <a href="{{ url(request, xinfa.popUrl) }}">Một quyển{% if xinfa.private_name %}{{ xinfa.private_name }}của{% endif %}{{ xinfa.row.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if count >= request.roleRow.xinfa_storage %}
+        Ngươi tâm pháp kho hàng đã đầy.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Func/XinfaStorage/pushIndex') }}">Tồn nhập tâm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

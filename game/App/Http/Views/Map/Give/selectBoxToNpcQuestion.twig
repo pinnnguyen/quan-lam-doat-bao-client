@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi phải cho 【{{ npc.name }}】 bao nhiêu {{ role_thing.row.name }}？
+    <form action="{{ url(request, role_thing.give_url) }}" method="post">
+        <input type="text" name="number" min="1">
+        <br/>
+        <input type="submit" value="Xác định cho đi">
+    </form>
+    <a href="{{ url(request, role_thing.back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

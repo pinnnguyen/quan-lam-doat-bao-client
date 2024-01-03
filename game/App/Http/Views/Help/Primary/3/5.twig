@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ví dụ: nếu bạn muốn Thêm bạn Tôi là đám mây thì hãy nhấn vào "Thêm làm bạn".
+    <br/>
+    Tôi là Yun nữ <a href="{{ url(request, 'Help/Primary/description/3/6') }}">Thêm bạn</a>Gửi tin nhắn
+    <br/>
+    Tôi là Phong nam
+     <1 phút ngơ ngác> Thêm bạn Gửi tin nhắn
+     <br/>
+     Tất nhiên, khi nhận được tin nhắn của bên kia, bạn có thể nhấn vào "Thêm bạn" để thêm nhanh.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

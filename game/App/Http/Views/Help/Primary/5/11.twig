@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Đồng dạng ngươi đi vào luyện võ trường
+    <br/>
+    Ngươi đi tới luyện võ trường
+    <br/>
+    Bạn đã gặp <a href= "{{ url(request, 'Help/Primary/description/5/12') }}" > mộc nhân, mộc nhân, mộc nhân cùng “Kiếm hiệp” Huyết Ma thế gia </a>
+    <br/>
+    Nơi này có trúc kiếm, trúc đao cùng trúc trượng
+    <br/>
+    Thỉnh điểm đánh ngươi gặp được người
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

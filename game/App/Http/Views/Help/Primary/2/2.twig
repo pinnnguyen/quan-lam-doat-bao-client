@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Click vào liên kết "Trạng thái / đơn lựa chọn" ở cuối trang, bạn sẽ thấy giao diện như thế này. Vui lòng chọn Trạng thái cơ thể hoặc Cá nhân tin tức để xem phần giới thiệu liên quan. Chương menu sẽ đưa ra một giới thiệu chi tiết về các menu khác.)
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/3') }}">Trạng thái cơ thể</a>
+    <br/>
+    Nhiệm Vụ
+    <br/>
+    Đồ Đạc
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/11') }}">Cá nhân tin tức</a>
+    <br/>
+    Trò chuyện trực tuyến
+    <br/>
+    Dịch chuyển tức thời
+    <br/>
+    Diễn đàn săn tìm kho báu
+    <br/>
+    Mẹo trò chơi
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

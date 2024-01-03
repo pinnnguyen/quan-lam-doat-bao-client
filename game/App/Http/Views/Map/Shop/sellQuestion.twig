@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi xác định lấy{{ get_hans_money(role_thing.sellPrice) }}bán ra này{{ role_thing.row.unit }}{{ role_thing.row.name }}không？
+    <br/>
+    <a href="{{ url(request, role_thing.sellPostUrl) }}">Xác định bán ra</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Shop/sellIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

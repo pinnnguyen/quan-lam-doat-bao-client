@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ get_hans_number(drug.number) }}{{ drug.row.unit }}{{ drug.row.name }}
+    <br/>
+    {% if drug.row.description is not empty %}
+        {{ drug.row.description }}
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, drug.useUrl) }}">Sử dụng</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Thing/drug') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

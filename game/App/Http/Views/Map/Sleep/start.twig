@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi hướng trên giường một nằm, Bắt đầu ngủ.
+    <br/>
+    Chỉ chốc lát sau, ngươi liền tiến vào mộng đẹp.
+    <br/>
+    <a href="{{ url(request, 'Map/Sleep/waiting') }}">Chờ đợi</a>
+{% endblock %}

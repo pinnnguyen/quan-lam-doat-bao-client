@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    [ về tăng lên võ công ]
+<br/>
+Tăng lên võ công yêu cầu Tu vi cùng Nội lực điểm, cái này có thể thông qua nhiệm vụ hoặc là chiến đấu tới đạt được.
+<br/>
+Tay mới người chơi có thể trước cùng võ lâm người mang tin tức Đối thoại truyền tin Tu hành đạt được Tu vi cùng Nội lực tới thăng cấp võ công, cũng có thể cùng xuân hoa, mộc nhân chiến đấu tới tăng lên chính mình, cũng có thể ở Kính Hồ câu cá nhắc nhở thực lực.
+<br/>
+Mặt sau có thể thông qua cùng bất đồng cấp bậc trò chơi nhân vật chiến đấu tới tăng lên thực lực của chính mình.
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

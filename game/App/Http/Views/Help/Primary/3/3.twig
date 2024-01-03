@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Game còn có hệ thống diễn đàn, bạn có thể vào diễn đàn thông qua trang chủ hoặc đến quán trà nhỏ ở thành phố Trường An để vào diễn đàn. Bạn có thể nói chuyện thoải mái trong diễn đàn và giao tiếp với những người chơi khác mọi lúc, mọi nơi.
+     <br/>
+     Tuy nhiên, cần lưu ý rằng cần phải có giao tiếp văn minh, hợp lý. Chúng tôi cấm bất kỳ ai xuất bản nội dung sau trong trò chơi:
+     <br/>
+     1. Nội dung liên quan đến nội dung khiêu dâm và ma túy.
+     <br/>
+     2. Ngôn ngữ khiêu khích, công kích đội ngũ vận hành game
+     <br/>
+     3. Những chủ đề nhạy cảm về mặt xã hội, những nhận xét tiêu cực liên quan đến đất nước, xã hội, v.v.
+     <br/>
+     Bất cứ ai vi phạm các quy định trên sẽ bị cấm khỏi trò chơi! Sau khi bị cấm, bạn sẽ không thể sử dụng hệ thống chat và diễn đàn. Những người phạm tội nghiêm trọng sẽ bị trừng phạt bằng cách cấm tài khoản. Mong bạn lưu ý điều này.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/1') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

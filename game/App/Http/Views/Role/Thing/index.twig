@@ -1,0 +1,36 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Thing/drug') }}">Chữa thương dược</a>
+    <br/>
+    Trên người của ngươi mang theo dưới đây mấy thứ này ( phụ trọng:{{ weight }}%)
+    <br/>
+    {% if kind == 1 %}Sở hữu{% else %}<a href="{{ url(request, 'Role/Thing/index/1') }}">Sở hữu</a>{% endif %}
+    {% if kind == 2 %}Trang bị{% else %}<a href="{{ url(request, 'Role/Thing/index/2') }}"}">Trang Bị</a>{% endif %}
+    {% if kind == 3 %}Thư tịch{% else %}<a href="{{ url(request, 'Role/Thing/index/3') }}">Thư tịch</a>{% endif %}
+    {% if kind == 4 %}Cái khác{% else %}<a href="{{ url(request, 'Role/Thing/index/4') }}">Cái khác</a>{% endif %}
+    <br/>
+    {% if things is not empty %}
+        {% for thing in things %}
+            <a href="{{ url(request, thing.viewUrl) }}">
+                {% if thing.is_body %}
+                    {{ thing.body_name }}
+                {% elseif thing.thing_id == 213 %}
+                    {{ get_hans_money(thing.number) }}
+                {% elseif thing.is_letter %}
+                    Một phong thư
+                {% else %}
+                    {% if thing.row.is_no_drop %}
+                        {% if thing.equipped %}□{% endif %}{{ get_hans_number(thing.number) }}{{ thing.row.unit }}「{{ thing.row.name }}」
+                    {% else %}
+                        {% if thing.equipped %}□{% endif %}{{ get_hans_number(thing.number) }}{{ thing.row.unit }}{{ thing.row.name }}
+                    {% endif %}
+                {% endif %}
+            </a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

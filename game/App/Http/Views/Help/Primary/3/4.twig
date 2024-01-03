@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Với sự phát triển của thời đại, nhiều phần mềm xã hội khác nhau xuất hiện không ngừng và chúng tôi cũng đã tạo ra một nhóm QQ chính thức:{{ config('Game', 'QQ_GROUP') }}Chào mừng mọi người tham gia nhóm Q và cùng nhau giao lưu. Nếu tham gia nhóm Q, bạn cũng có thể liên hệ với quản trị viên để nhận gói quà thành viên nhóm, nếu tăng cấp độ trò chuyện trong nhóm, bạn có thể nhận được nhiều gói quà hơn. Tham gia ngay!
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/1') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

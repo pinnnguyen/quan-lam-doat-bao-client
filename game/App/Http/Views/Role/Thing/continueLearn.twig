@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi học tập có quan hệ {{ role_skill.row.name }} Kỹ xảo, tựa hồ có chút tiến bộ.
+    <br/>
+    Ngươi {{ role_skill.row.name }} Tiến bộ.
+    <br/>
+    （{{ lv }}Cấp/{{ percent }}%）
+    <br/>
+    <a href="{{ url(request, continue_url) }}">Tiếp tục học tập</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

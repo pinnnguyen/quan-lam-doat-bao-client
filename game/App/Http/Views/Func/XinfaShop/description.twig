@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ xinfa.name }}
+    <br/>
+    {{ xinfa.description }}
+    <br/>
+    <a href="{{ url(request, xinfa.backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ võ lâm môn phái ]
+<br/>
+Trong chốn võ lâm môn phái rất nhiều, có Ma giáo, Thiếu Lâm, Ngũ Nhạc kiếm phái chờ.
+<br/>
+Võ lâm môn phái chia làm thường quy môn phái cùng che giấu môn phái.
+<br/>
+Trong trò chơi võ công chia làm Đặc thù võ công cùng cơ sở võ công.
+<br/>
+Cơ sở võ công là Đặc thù võ công cơ sở, cơ sở võ công có thể thông qua võ công thư tịch học tập được đến tăng lên.
+<br/>
+Đặc thù võ công ở bất đồng cấp bậc có bất đồng chiêu thức, Đặc thù võ công chỉ có thể thông qua gia nhập môn phái học tập.
+<br/>
+Tay mới người chơi có thể ở Trường An khách điếm Bái sư gia nhập.
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

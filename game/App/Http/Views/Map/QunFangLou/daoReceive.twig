@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh giúp ta trước tìm một phen 【{{ thing.name }}】，Hoàn thành sau có phong phú khen thưởng nha.
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

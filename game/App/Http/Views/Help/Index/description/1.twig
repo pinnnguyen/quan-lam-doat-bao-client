@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    [ cơ bản động tác ]
+<br/>
+1, di động: Điểm đánh tương quan liên tiếp liền có thể di động phòng, như bắc, nam từ từ.
+<br/>
+2, nói chuyện phiếm: Chia làm tư nhân, toàn phục cùng bang phái 3 cái kênh, bất đồng kênh nhưng nhìn đến bất đồng tin tức.
+<br/>
+3, trạng thái: Có thể Xem xét tự thân trạng thái, là một cái quan trọng lựa chọn.
+<br/>
+[ mặt khác động tác ]
+<br/>
+1, chứa đựng: Người chơi 10 phút không làm bất luận cái gì động tác liền sẽ offline, lúc này ngài số liệu đem bị tự động ký lục xuống dưới.
+<br/>
+2, xe ngựa: Mỗi cái khu vực ( thành thị ) trung tâm đều 24 giờ có xe ngựa, cưỡi xe ngựa có thể nhanh chóng đi trước muốn đi thành thị.
+<br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

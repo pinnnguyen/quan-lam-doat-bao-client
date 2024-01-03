@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if things is empty %}
+        Trước mặt không có nhưng tồn nhập kho hàng vật phẩm.
+        <br/>
+    {% else %}
+        Ngươi muốn tồn nhập cái gì vật phẩm?
+        <br/>
+        {% for thing in things %}
+            <a href="{{ url(request, thing.pushUrl) }}">一{{ thing.row.unit }}{{ thing.row.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Func/Storage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

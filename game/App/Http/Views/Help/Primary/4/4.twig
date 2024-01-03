@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Lúc này ngươi chính là Ngũ Nhạc kiếm phái đệ tử, hệ thống sẽ cho ra phía dưới nhắc nhở:
+    <br/>
+    “Ngươi quỳ trên mặt đất hướng Liễu như yên khái bốn cái vang đầu, Liễu như yên thu ngươi làm Ngũ Nhạc kiếm phái đệ tứ đại đệ tử.”
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/5') }}">Tiếp tục</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi trước mặt có một cây tơ vàng gỗ nam, hay không xác nhận dùng nó tới xây dựng thêm tâm pháp kho hàng?
+    <br/>
+    <a href="{{ url(request, 'Func/XinfaStorage/extendPost') }}">Xác nhận</a>
+    <br/>
+    <a href="{{ url(request, 'Func/XinfaStorage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

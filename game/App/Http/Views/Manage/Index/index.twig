@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Manage/Mail/thing') }}">Gửi đi vật phẩm bưu kiện</a>
+    <br/>
+    <a href="{{ url(request, 'Manage/Mail/xinfa') }}">Gửi đi tâm pháp bưu kiện</a>
+    <br/>
+    <a href="{{ url(request, 'Manage/Mail/yuanbao') }}">Gửi đi nguyên bảo bưu kiện</a>
+    <br/>
+    <a href="{{ url(request, 'Manage/Mail/dj') }}">Gửi đi đạo cụ bưu kiện</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

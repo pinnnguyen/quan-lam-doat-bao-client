@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi xác định đem này bổn{{ role_xinfa.row.name }}Tư hữu hóa không? Mỗi bản tâm pháp chỉ có thể tư hữu hóa một lần, thả không thể đổi ý.
+    <br/>
+    <a href="{{ url(request, privateUrl) }}">Xác định</a>
+    <br/>
+    <a href="{{ url(request, backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

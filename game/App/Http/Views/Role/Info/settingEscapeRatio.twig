@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if action == 'save' %}
+    {{ message }}
+    {% else %}
+    当前Chạy trốn系数： {{role.escape_ratio}}<br/>
+    即你的气血低于 {{role.escape_ratio}}% 时进入战斗，系统就会自动下达Chạy trốn指令。<br/>
+    请输入你要重新设定的Chạy trốn系数(0到100)？<br/>
+    0代表始终不Chạy trốn，100代表一进入战斗就马上Chạy trốn<br/>
+    <form method="post" action="{{ url(request, 'Role/Info/settingEscapeRatio') }}">
+        <label>
+            <input type="number" name="escape_ratio" placeholder="请输入Chạy trốn系数" style="height: 30px;">
+        </label>
+        <br/>
+        <input type="submit" value="Xác định" style="height: 30px;margin: 10px 0 0 0;">
+    </form>
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Role/Info/setting') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

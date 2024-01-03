@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Mục đích của việc xem là Làm mới cảnh hiện tại, để bạn có thể biết ai đang ở trong cảnh hiện tại và liệu có vật phẩm mới nào trên mặt đất hay không.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

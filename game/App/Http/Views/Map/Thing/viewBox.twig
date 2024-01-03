@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    一{{ thing.row.unit }}{{ thing.row.name }}
+    <br/>
+    {% if thing.row.description %}
+        {{ thing.row.description }}
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, pickUpUrl) }}">Nhặt lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

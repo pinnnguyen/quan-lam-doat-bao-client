@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if role_equipment.row.is_no_drop %}
+        Ngươi đi đến vách đá trước, cầm lấy「{{ role_equipment.row.name }}」，Tùy tay hướng vách đá đâm tới！
+    {% else %}
+        Ngươi đi đến vách đá trước, cầm lấy{{ role_equipment.row.name }}，Tùy tay hướng vách đá đâm tới！
+    {% endif %}
+    <br/>
+    Ngươi chỉ nghe một tiếng nổ vang, vách đá thế nhưng bị thọc xuyên, nguyên lai bên trong có một cái động lớn!
+    <br/>
+    <a href="{{ url(request, 'Map/Index/delivery/752') }}">Tiến vào trong động</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

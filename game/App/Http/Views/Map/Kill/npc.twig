@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if npc %}
+        {% if come_footprints is not empty %}
+            {% for come_footprint in come_footprints %}
+                {{ come_footprint }}
+                <br/>
+            {% endfor %}
+        {% endif %}
+        <a href="{{ url(request, 'Map/Battlefield/npc') }}">Kiểm tra trạng thái</a>
+        <a href="{{ url(request, 'Map/Battlefield/skill') }}">Đặc thù công kích</a>
+        <a href="{{ url(request, 'Map/Battlefield/xinfa') }}">Tâm pháp công kích</a>
+        <a href="{{ url(request, 'Map/Battlefield/surrender') }}">Đầu hàng</a>
+        <a href="{{ url(request, 'Map/Battlefield/escape') }}">Chạy trốn</a>
+        <br/>
+        {{ npc.name }} hét vào mặt ngươi: ：「{% if request.roleRow.gender == '男' %}Xú tặc{% else %}Tiểu tiện nhân{% endif %}!Hôm nay không phải ngươi chết chính là ta sống!」
+        <br/>
+        {{ npc.name }} Thoạt nhìn muốn giết chết ngươi!
+        <br/>
+        Ngươi thấy {{ npc.name }} hành động, ý đồ tìm kiếm cơ hội một kích thành công.
+    {% else %}
+        Nhân vật đã biến mất.
+        <br/>
+        <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    {% endif %}
+{% endblock %}

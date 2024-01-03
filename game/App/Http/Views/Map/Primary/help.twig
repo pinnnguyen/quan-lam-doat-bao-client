@@ -1,0 +1,43 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Hoan nghênh đi vào thay đổi bất ngờ 【{{ config('Game', 'NAME') }}】
+    <br/>
+    ( nghiêm túc đọc sau có kinh hỉ )
+    <br/>
+    【 lấy tên 】 lang bạt giang hồ, hành hiệp trượng nghĩa có thể nào thiếu cái danh hào đâu
+    <br/>
+    【 thục địa đồ 】 hành tẩu giang hồ, vĩnh không lạc đường - bản đồ
+    <br/>
+    【 tìm vật phẩm 】Trở lại trò chơi-Trạng thái / lựa chọn-Đồ Đạc
+    <br/>
+    【 tìm bí tịch 】0-30 cấp võ công cơ sở bí tịch cất chứa ở Trường An thành - suy nghĩ phòng
+    <br/>
+    【 hoạch tu tiềm 】 Tân Thủ thôn - võ lâm người mang tin tức -Đối thoại- truyền tin đạt được tu tiềm
+    <br/>
+    Trường An khách điếm- Chu Tước đường cái - đánh quái đạt được tu tiềm
+    <br/>
+    Tân Thủ thôn - Kính Hồ - câu cá đạt được tu tiềm ( Trạng thái / lựa chọn-Đồ Đạc- mang lên - một cây câu cá can, Kính Hồ - cửa hàng - có thể mua )
+    <br/>
+    【 tuyển môn phái 】 giang hồ ân oán tình thù, có thể nào không một chiêu nửa thức võ công đâu
+    <br/>
+    Trường An thành -Trường An khách điếm- tam đại môn phái -Ma giáo “Vô danh khất cái”, Thiếu Lâm “Thanh pháp sư”, Ngũ Nhạc “Liễu như yên” đang ở tuyển nhận nhập môn đệ tử ( hoan nghênh cố ý chi sĩ đi trước Bái sư, học nghệ lựa chọn thích hợp cá nhân môn phái, võ công )
+    <br/>
+    【 nhập sư môn 】 “Giang hồ hành, tất có ta sư nào” đi trước - giang hồ tụ nghĩa sảnh - nhưng lựa chọn một vị người chơi “Sư phó” ( Tu hành trong quá trình có cái gì vấn đề có thể hỏi sư phó, Bái sư sau Tu vi mãn 50 năm xuất sư nhưng đạt được trang bị ), sư phó lãnh vào cửa, Tu hành dựa cá nhân
+    <br/>
+    【 giang hồ tình 】 võ quán - đào viên - kết bái “Có thể cùng bạn tốt kết bái vì nghĩa huynh đệ” sau kích phát “Đối xử chân thành”
+    <br/>
+    Trường An khách điếm- động phòng - kết hôn “Tình đầu ý hợp, trong lòng cái thế anh hùng kết làm vợ chồng, bạch đầu giai lão” sau kích phát “Tâm linh tương thông”
+    <br/>
+    【 nhập giang hồ 】 càng nhiều kỹ càng tỉ mỉ thỉnh duyệt -Trở lại trò chơi-Ta có thể làm cái gì
+    <br/>
+    【 tay mới phúc lợi kinh hỉ 】
+    <br/>
+    Gia nhập phía chính phủ Q đàn, liên hệ quản lý viên có thể lĩnh ma mới trợ lực lễ bao một phần nga, càng nhưng cùng đông đảo giang hồ bạn tốt cùng nhau giao lưu
+    <br/>
+    Chúc ngài sớm hơn trở thành một thế hệ đại hiệp!!
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

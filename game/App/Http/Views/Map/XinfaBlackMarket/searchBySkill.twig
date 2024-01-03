@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh lựa chọn tra tìm loại hình:
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/1') }}">Cơ bản kiếm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/2') }}">Cơ bản đao pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/3') }}">Cơ bản quyền cước</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/4') }}">Sử dụng võ công</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/5') }}">Cơ bản chống đỡ</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill/6') }}">Cơ bản nội công</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/purchaseIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

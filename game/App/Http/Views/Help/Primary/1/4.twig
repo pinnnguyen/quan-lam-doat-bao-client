@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Nơi này ngươi nhìn đến chính là ở cái này cảnh tượng trung nhân vật, nếu là người chơi, ngươi liền có thể cùng hắn nói chuyện hỗ động giao lưu nga. Điểm đánh một chút liễu như yên, nhìn xem sẽ có cái gì?)
+    <br/>
+    Trường An khách điếm
+    <br/>
+    Giang hồ Bách Hiểu Sinh
+    <br/>
+    Thanh pháp sư
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/5') }}">Liễu như yên</a>
+    <br/>
+    Vô danh khất cái
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

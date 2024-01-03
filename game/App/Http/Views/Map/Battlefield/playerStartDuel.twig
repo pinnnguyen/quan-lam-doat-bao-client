@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if footprints is not empty %}
+        {% for footprint in footprints %}
+            {{ footprint }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Battlefield/state') }}">Kiểm tra trạng thái</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/skill') }}">Tuyệt chiêu</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/xinfa') }}">Tâm Pháp</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/surrender') }}">Đầu hàng</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/escape') }}">Chạy trốn</a>
+    <br/>
+    Ngươi đối với {{ role_row.name }}nói：「Tại hạ {{ request.roleRow.name }}, ở đây xin thỉnh giáo 」
+    <br/>
+    {{ role_row.name }} Thoạt nhìn muốn giết chết ngươi!
+    <br/>
+    Ngươi thấy {{ role_row.name }} hành động, ý đồ tìm kiếm cơ hội một kích thành công.
+{% endblock %}

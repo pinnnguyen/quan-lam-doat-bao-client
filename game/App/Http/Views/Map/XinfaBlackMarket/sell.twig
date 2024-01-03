@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi muốn lấy bao nhiêu Bạch ngân giá cả gởi bán này bổn{{ role_xinfa.row.name }}？
+    <br/>
+    Đưa vào giá cả ( Bạch ngân）
+    <form action="{{ url(request, role_xinfa.sellPostUrl) }}" method="post">
+        <input type="text" name="price" min="1">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/sellIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

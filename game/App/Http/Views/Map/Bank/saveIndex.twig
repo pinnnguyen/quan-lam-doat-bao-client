@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngài hiện tại trên người cùng sở hữu {{ get_hans_money(bag_money) }}。
+    <br/>
+    Lựa chọn ngươi muốn tồn nhập tiền tài loại hình!
+    <br/>
+    <a href="{{ url(request, 'Map/Bank/save/1') }}">Hoàng kim</a> |
+    <a href="{{ url(request, 'Map/Bank/save/2') }}">Bạch ngân</a> |
+    <a href="{{ url(request, 'Map/Bank/save/3') }}">Đồng tệ</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

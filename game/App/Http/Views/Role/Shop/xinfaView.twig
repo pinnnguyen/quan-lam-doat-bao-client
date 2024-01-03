@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【{{ xinfa.row.name }}】
+    <br/>
+    Môn phái:{{ xinfa.sect }}
+    <br/>
+    Sở cần tu hành:{{ get_hans_number(xinfa.row.experience) }} năm
+    <br/>
+    {% if xinfa.skill is not empty %}
+        Sở cần kỹ năng:{{ xinfa.row.skill_lv }}cấp{{ xinfa.skill.name }}
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, xinfa.buyUrl) }}">Mua</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Shop/xinfa') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

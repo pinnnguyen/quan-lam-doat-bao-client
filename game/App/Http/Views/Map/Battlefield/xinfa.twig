@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if message %}
+        {{ message }}
+        <br/>
+    {% else %}
+        {% if tricks is not empty %}
+            {% for trick in tricks %}
+                <a href="{{ url(request, trick.selectUrl) }}">{{ trick.name }}</a>
+                <br/>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Battlefield/state') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Battlefield/state') }}">Trở lại trò chơi</a>
+{% endblock %}

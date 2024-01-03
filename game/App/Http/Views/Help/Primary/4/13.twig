@@ -1,0 +1,25 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Cơ bản võ công là một phần võ công của bạn ngoại trừ chiêu thức, hiện tại trong game có các loại Cơ bản võ công sau đây, hãy click vào tên võ công bên dưới để tìm hiểu thêm về môn võ này.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/14') }}">Cơ bản khinh công</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/15') }}">Cơ bản nội công</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/16') }}">Hủy đi chiêu giảm bớt lực</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/17') }}">Cơ bản quyền cước</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/18') }}">Cơ bản kiếm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/19') }}">Cơ bản đao pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/12') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <form action="{{ url(request, 'Func/Storage/search') }}" method="post">
+        <input type="text" name="name"><input type="submit" value="Tìm tòi">
+    </form>
+    Kho hàng dung lượng:{{ count }}/{{ request.roleRow.storage }}
+    <a href="{{ url(request, 'Func/Storage/extendQuestion') }}">Mở rộng kho hàng</a>
+    <br/>
+    {% if things is empty %}
+        Ngươi kho hàng rỗng tuếch.
+        <br/>
+    {% else %}
+        Ngài muốn lấy ra dưới này đó vật phẩm?
+        <br/>
+        {% for thing in things %}
+            <a href="{{ url(request, thing.viewUrl) }}">一{{ thing.row.unit }}{{ thing.row.name }}</a> <a
+                href="{{ url(request, thing.popUrl) }}">Lấy ra</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if last_url is not empty %}
+        <a href="{{ url(request, last_url) }}">Trang sau</a>
+    {% endif %}
+    {% if next_url is not empty %}
+        <a href="{{ url(request, next_url) }}">Trang sau</a>
+    {% endif %}
+    {% if page_max > 0 %}
+        Trang số ({{ page }}/{{ page_max }}）
+        <br/>
+    {% endif %}
+    {% if count >= request.roleRow.storage %}
+        Ngươi kho hàng đã đầy.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Func/Storage/pushIndex') }}">Tồn nhập vật phẩm</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

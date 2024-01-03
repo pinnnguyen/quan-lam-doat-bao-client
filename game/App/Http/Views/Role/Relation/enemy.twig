@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% for enemy in enemies %}
+        {% if enemy.online %}
+            <a href="{{ url(request, enemy.viewUrl) }}">{{ enemy.name }}</a>
+        {% else %}
+            {{ enemy.name }}
+        {% endif %}
+        <br/>
+    {% else %}
+        Ngươi không có kẻ thù!
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Role/Relation/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if request.roleRow.switch_public == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/1') }}">Cho phép tin nhắn trò chuyện công khai</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/2') }}">Từ chối tin nhắn trò chuyện công khai</a>
+    {% endif %}
+    <br/>
+    {% if request.roleRow.switch_stranger == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/3') }}">Cho phép tin nhắn lạ</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/4') }}">Từ chối tin nhắn từ người lạ</a>
+    {% endif %}
+    <br/>
+    {% if request.roleRow.switch_arena == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/5') }}">Cho phép tin nhắn đấu trường</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/6') }}">Từ chối tin tức đấu trường</a>
+    {% endif %}
+    <br/>
+    {% if request.roleRow.switch_faction == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/7') }}">Cho phép tin nhắn băng nhóm</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/8') }}">Từ chối tin tức băng đảng</a>
+    {% endif %}
+    <br/>
+    {% if request.roleRow.switch_rumour == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/9') }}">Cho phép tin đồn</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/10') }}">Từ chối tin đồn</a>
+    {% endif %}
+    <br/>
+    {% if request.roleRow.switch_jianghu == 0 %}
+        <a href="{{ url(request, 'Role/Message/switch/11') }}">Cho phép giang hồ tin tức</a>
+    {% else %}
+        <a href="{{ url(request, 'Role/Message/switch/12') }}">Từ chối giang hồ tin tức</a>
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Role/Contact/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

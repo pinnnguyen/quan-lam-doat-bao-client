@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi ngồi xuống vận khí dụng công, một cổ nội tức bắt đầu ở trong cơ thể lưu động.
+    <br/>
+    {# Khí huyết:{{ role_attrs.hp }}/{{ role_attrs.maxHp }} #}
+    {# <br/> #}
+    Nội lực:{{ role_attrs.mp }}/{{ role_attrs.maxMp }}
+    <br/>
+    {# Tinh thần:{{ role_attrs.jingshen }}/{{ role_attrs.maxJingshen }} #}
+    {# <br/> #}
+    <a href="{{ url(request, 'Role/Status/mpPost/1') }}">Tiếp tục tu luyện</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Status/mp') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

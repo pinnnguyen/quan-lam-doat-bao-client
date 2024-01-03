@@ -1,0 +1,49 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if message %}
+        {{ message }}
+        <br/>
+    {% endif %}
+    {% if role_xinfa.private_name %}{{ role_xinfa.private_name }}của{% endif %}{{ role_xinfa.row.name }}
+    <br/>
+    {{ description }}{% if displayDescription %}……<a href="{{ url(request, descriptionUrl) }}">Một mô tả chi tiết</a>{% endif %}
+    <br/>
+    Loại hình: {{ role_xinfa.row.kind }}Tâm pháp
+    <br/>
+    Sở cần tu hành: {{ get_hans_number(role_xinfa.row.experience) }} năm
+    <br/>
+    {% if role_xinfa.row.skill_id %}
+        Sở cần kỹ năng: {{ role_xinfa.row.skill_lv }}cấp{{ role_xinfa.skill.name }}
+        <br/>
+    {% endif %}
+    Môn phái: {{ role_xinfa.sect }}
+    <br/>
+    Kinh nghiệm: {{ role_xinfa.experience }}/{{ role_xinfa.need_experience }}
+    <br/>
+    Cấp bậc: {{ role_xinfa.lv }}
+    <br/>
+    Cấp bậc lớn nhất: {{ role_xinfa.max_lv }}
+    <br/>
+    {% if role_xinfa.equipped %}
+        <a href="{{ url(request, unPutOnUrl) }}">Gỡ xuống</a>
+        <br/>
+    {% else %}
+        <a href="{{ url(request, putOnUrl) }}">Lắp đặt</a>
+        <br/>
+    {% endif %}
+    {% if role_xinfa.practiced %}
+        <a href="{{ url(request, unPracticeUrl) }}">Đình Tu</a>
+        <br/>
+    {% else %}
+        <a href="{{ url(request, practiceUrl) }}">Tu Luyện</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, privateQuestionUrl) }}">Tư Hữu Hóa</a>
+    <br/>
+    <a href="{{ url(request, throwQuestionUrl) }}">Loại bỏ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Xinfa/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

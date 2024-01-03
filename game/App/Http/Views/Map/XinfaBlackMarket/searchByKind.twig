@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh lựa chọn muốn tra tìm tâm pháp loại hình:
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByKind/1') }}">Công kích tâm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByKind/2') }}">Sinh mệnh tâm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByKind/3') }}">Nội công tâm pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/purchaseIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

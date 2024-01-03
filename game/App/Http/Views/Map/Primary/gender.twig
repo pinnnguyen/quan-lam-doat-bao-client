@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vui lòng chọn giới tính của bạn:
+    <br/>
+    <a href="{{ url(request, 'Map/Primary/gender/1') }}">Nam</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Primary/gender/2') }}">Nữ</a>
+{% endblock %}

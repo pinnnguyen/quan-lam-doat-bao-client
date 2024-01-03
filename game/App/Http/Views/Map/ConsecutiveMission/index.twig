@@ -1,0 +1,52 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if completed is not empty %}
+        {% if completed %}
+            {{ greet }}
+            <br/>
+            {{ gain }}
+            <br/>
+        {% endif %}
+    {% endif %}
+
+    {% if stop is not empty %}
+        {% if stop %}
+            Vị này đại hiệp, bởi vì ngươi siêu khi đệ trình nhiệm vụ, liên tục nhiệm vụ đã ngưng hẳn. ( như cần Tiếp tục nhiệm vụ thỉnh một lần nữa lĩnh, liên tục nhiệm vụ hoàn số đem một lần nữa đếm hết. )
+            <br/>
+        {% endif %}
+    {% endif %}
+
+    {% if verify is not empty %}
+        {% if verify %}
+            Vị này đại hiệp, ngươi đã hoàn thành quá nhiều nhiệm vụ, yêu cầu nghiệm chứng sau mới có thể Tiếp tục nhiệm vụ. ( như không nghiệm chứng, đem tạm dừng liên tục nhiệm vụ, thả liên tục nhiệm vụ hoàn số sẽ không đình chỉ tích lũy. )
+            <br/>
+            <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/verify') }}'">Đi để xác minh</button>
+            {#            <a href="{{ url(request, 'Map/ConsecutiveMission/verify') }}">Đi để xác minh</a> #}
+            <br/>
+        {% endif %}
+    {% endif %}
+
+    {% if receive is not empty %}
+        {% if receive %}
+            {% if mission.circle == 1 or mission.circle == 4 %}
+                Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】Giáo huấn một lần【{{ npc.name }}】，Trở về tại hạ tất có thâm tạ!!
+            {% elseif mission.circle == 2 or mission.circle == 5 %}
+                Nhiệm Vụ: Không biết ai to gan như vậy, tối hôm qua trộm ta 【{{ get_hans_number(mission.gemNumber) }}个{{ gem_name }}】，Ngươi đi giúp ta đủ số truy hồi, tại hạ tất có thâm tạ!! ( sát bất luận cái gì quái nhất định tỷ lệ đạt được vật ấy phẩm, sát đẳng cấp cao hoặc cùng đẳng cấp quái xác suất trọng đại )!!
+            {% elseif mission.circle == 3 %}
+                Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】向【{{ npc.name }}】 Hỏi thăm một ít tình báo，Trở về tại hạ tất có thâm tạ!!
+            {% elseif mission.circle == 6 %}
+                Nhiệm Vụ: Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】Tìm hiểu một chút tình báo, sau khi trở về tất có thâm tạ!!
+            {% elseif mission.circle == 7 %}
+                Nhiệm Vụ: Vị này đại hiệp, ta đam mê thu thập thiên hạ thần binh lợi khí, ngươi thả đi giúp ta tìm về một {{ thing.unit }}【{{ thing.name }}】，Tại hạ tất có thâm tạ!!!
+            {% endif %}
+            <br/>
+            <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}'">Làm mới nhiệm vụ</button>
+            {#            <a href="{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}">Làm mới nhiệm vụ</a> #}
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

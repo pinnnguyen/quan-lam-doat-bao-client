@@ -1,0 +1,63 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【VIP quy tắc】
+    <br/>
+    1. VIP tính toán phương thức
+    <br/>
+    Tiêu hao nguyên bảo tích lũy đến trình độ nhất định tăng lên VIP.
+    <br/>
+    2. VIP cấp bậc tính toán
+    <br/>
+    VIP0: Không cần tiêu hao nguyên bảo, nguyên thủy cấp bậc vì 0;
+    <br/>
+    VIP1: Tiêu hao 1500 nguyên bảo có thể thăng cấp vì VIP1;
+    <br/>
+    VIP2: Tiêu hao 3000 nguyên bảo có thể thăng cấp vì VIP2;
+    <br/>
+    VIP3: Tiêu hao 6000 nguyên bảo có thể thăng cấp vì VIP3;
+    <br/>
+    VIP4: Tiêu hao 12000 nguyên bảo có thể thăng cấp vì VIP4;
+    <br/>
+    VIP5: Tiêu hao 24000 nguyên bảo có thể thăng cấp vì VIP5;
+    <br/>
+    VIP6: Tiêu hao 48000 nguyên bảo có thể thăng cấp vì VIP6;
+    <br/>
+    VIP7: Tiêu hao 96000 nguyên bảo có thể thăng cấp vì VIP7;
+    <br/>
+    VIP8: Tiêu hao 192000 nguyên bảo có thể thăng cấp vì VIP8;
+    <br/>
+    VIP9: Tiêu hao 384000 nguyên bảo có thể thăng cấp vì VIP9;
+    <br/>
+    VIP10: Tiêu hao 768000 nguyên bảo có thể thăng cấp vì VIP10.
+    <br/>
+    3. VIP cấp bậc mỗi ngày khen thưởng cập cấp bậc khen thưởng
+    <br/>
+    VIP0: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 10 phút;
+    <br/>
+    VIP1: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 20 phút, cấp bậc lễ bao: 2 đem tâm pháp chìa khóa;
+    <br/>
+    VIP2: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 40 phút, cấp bậc lễ bao: 4 đem tâm pháp chìa khóa;
+    <br/>
+    VIP3: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 60 phút, cấp bậc lễ bao: 6 đem tâm pháp chìa khóa;
+    <br/>
+    VIP4: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 80 phút, cấp bậc lễ bao: 8 đem tâm pháp chìa khóa;
+    <br/>
+    VIP5: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 100 phút, cấp bậc lễ bao: 10 đem tâm pháp chìa khóa;
+    <br/>
+    VIP6: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 120 phút, cấp bậc lễ bao: 16 đem tâm pháp chìa khóa;
+    <br/>
+    VIP7: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 150 phút, cấp bậc lễ bao: 24 đem tâm pháp chìa khóa;
+    <br/>
+    VIP8: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 190 phút, cấp bậc lễ bao: 34 đem tâm pháp chìa khóa;
+    <br/>
+    VIP9: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 240 phút, cấp bậc lễ bao: 46 đem tâm pháp chìa khóa;
+    <br/>
+    VIP10: Mỗi ngày lĩnh gấp đôi tu tiềm thời gian 300 phút, cấp bậc lễ bao: 60 đem tâm pháp chìa khóa.
+    <br/>
+    * gấp đôi tu tiềm thời gian có thể cùng song, gấp ba tu tiềm đan hiệu quả chồng lên
+    <br/>
+    <a href="{{ url(request, 'Role/Top/Vip') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

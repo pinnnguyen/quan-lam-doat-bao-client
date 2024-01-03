@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Đa tạ vị tiểu huynh đệ này hỗ trợ, đây là cho ngươi khen thưởng.
+    <br/>
+    Ngươi tu luyện được {{ role_thing.experience }}Tu hành，{{ role_thing.qianneng }}điểm nội lực。
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

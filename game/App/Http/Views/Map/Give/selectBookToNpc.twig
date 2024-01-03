@@ -1,0 +1,9 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【{{ npc.name }}】: Ngươi cho ta thứ này làm cái gì?
+    <br/>
+    <a href="{{ url(request, role_thing.back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

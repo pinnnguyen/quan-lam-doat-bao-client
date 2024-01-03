@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+   Trước giới thiệu như thế nào cùng hệ thống nhân vật chiến đấu, thỉnh điểm đánh “Mộc nhân”
+    <br/>
+    <a href= "{{ url(request, 'Help/Primary/description/5/4') }}" > mộc nhân </a>
+    <br/>
+    Mộc nhân
+    <br/>
+    Mộc nhân
+    <br/>
+    Bình thường bá tánh Huyết Ma thế gia
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

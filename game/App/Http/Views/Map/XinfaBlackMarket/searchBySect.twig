@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh lựa chọn tra tìm tâm pháp Môn phái:
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySect/1') }}">Ma giáo</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySect/2') }}">Thiếu Lâm phái</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySect/3') }}">Ngũ Nhạc kiếm phái</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySect/0') }}">Bình thường bá tánh</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/purchaseIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

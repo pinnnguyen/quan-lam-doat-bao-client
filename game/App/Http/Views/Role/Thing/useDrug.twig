@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% for message in messages %}
+        {{ message }}
+        <br/>
+    {% endfor %}
+    {% if drug.number > 1 %}
+        <a href="{{ url(request, drug.useUrl) }}">Tiếp tục sử dụng</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Thing/drug') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

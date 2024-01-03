@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Click vào link có đánh dấu hướng để đến hiện trường theo hướng tương ứng. Có những vật phẩm trên mặt đất trong cảnh này. Hãy click vào link đằng sau "Đây rồi" để xem ở đây có gì? Sau đó bạn có thể tiếp tục tại Chang'an Inn phía đông Trở lại Xem phần giới thiệu các chức năng khác.)
+    <br/>
+    Ngươi đi tới Chu Tước đường cái
+    <br/>
+    Nơi này có<a href="{{ url(request, 'Help/Primary/description/1/11') }}">Trúc kiếm cùng trúc đao</a>
+    <br/>
+    Hãy chọn hướng đi của bạn:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Đông: Nhà trọ Trường An</a>
+    <br/>
+    Bạn đang đi trên một con phố đông đúc, nhìn những người nói giọng miền Nam và miền Bắc vội vã đi lại.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Lúc này, thanh kiếm tre sẽ cải thiện Lực công kích của bạn trong trận chiến. Hãy xem các chức năng khác trong cảnh Trở lại.)
+    <br/>
+    Ngươi lấy ra Một phen trúc kiếm làm như vũ khí.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/10') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

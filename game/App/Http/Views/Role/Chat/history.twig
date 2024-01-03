@@ -1,0 +1,42 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Chat/public') }}">Làm mới</a> |
+    <a href="{{ url(request, 'Role/Chat/index') }}">Chuyển Kênh</a>
+    <br/>
+    【 công cộng kênh trò chuyện 】
+    <br/>
+    {% if message %}
+        {{ message }}
+        <br/>
+    {% endif %}
+    Phát ngôn:
+    <form action="{{ url(request, 'Role/Chat/publicSend') }}" method="post">
+        <label>
+            <textarea rows="3" cols="18" name="content"></textarea>
+        </label>
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    {% if chat_logs is not empty %}
+        {% for chat_log in chat_logs %}
+            {% if chat_log.online %}
+                ({{ chat_log.date_time }})<a
+                    href="{{ url(request, chat_log.viewUrl) }}">{{ chat_log.sender }}</a>Chat All: {{ chat_log.content }}
+                <br/>
+            {% else %}
+                ({{ chat_log.date_time }}){{ chat_log.sender }}Chat All: {{ chat_log.content }}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        Kênh trò chuyện công khai trống.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, last_page) }}">Trang Trước</a>
+    <a href="{{ url(request, next_page) }}">Trang Sau</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Chat/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

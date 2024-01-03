@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Xe ngựa của ta tiện nghi lại an toàn, thu phí: 40 lượng Bạch ngân.
+    <br/>
+    Bổn xe hành đã cùng cả nước tiền trang hợp tác, ngồi xe phí dụng trực tiếp từ tiền trang khấu trừ.
+    <br/>
+    Ngươi muốn đi nơi nào?
+    <br/>
+    {% for carriage in carriages %}
+        <a href="{{ url(request, carriage.ride_url) }}">{{ carriage.city_name }}</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

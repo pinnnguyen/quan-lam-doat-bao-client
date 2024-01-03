@@ -1,0 +1,16 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Info/settingNick') }}">修改昵称</a>
+    <a href="{{ url(request, 'Role/Info/settingNickDescription') }}">参数说明</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Info/settingEscapeRatio') }}">设定Chạy trốn系数</a>
+    <a href="{{ url(request, 'Role/Info/settingEscapeRatioDescription') }}">参数说明</a>
+    <br/>
+    {#<a href="{{ url(request, 'Role/Info/settingTitle') }}">江湖称号</a>
+    <a href="{{ url(request, 'Role/Info/settingTitleDescription') }}">参数说明</a>
+    <br/>#}
+    <a href="{{ url(request, 'Role/Info/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

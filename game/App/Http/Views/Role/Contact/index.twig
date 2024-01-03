@@ -1,0 +1,22 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Chat/index') }}">Kênh trò chuyện</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Message/switch') }}">Chuyển đổi tin nhắn</a>
+    {# <br/> #}
+    {# Lịch sử trò chuyện #}
+    {# <a href="{{ url(request, 'Role/Chat/history') }}">Lịch sử trò chuyện</a> #}
+    <br/>
+    <a href="{{ url(request, 'Role/Mail/index') }}">Hộp thư của tôi</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Friend/index') }}">Danh sách bạn bè</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Friend/manage') }}">Quản lý bạn bè</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Friend/black') }}">Danh sách đen</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

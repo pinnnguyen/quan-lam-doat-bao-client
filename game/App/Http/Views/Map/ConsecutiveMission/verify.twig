@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vị này đại hiệp, ngươi đã hoàn thành quá nhiều nhiệm vụ, yêu cầu nghiệm chứng sau mới có thể Tiếp tục nhiệm vụ. ( như không nghiệm chứng, đem tạm dừng liên tục nhiệm vụ, thả liên tục nhiệm vụ hoàn số sẽ không đình chỉ tích lũy. )
+    {% if message is not empty %}
+        <br/>
+        {{ message }}
+    {% endif %}
+    <form action="{{ url(request, 'Map/ConsecutiveMission/verifyPost') }}" method="post">
+        Mã xác nhận:
+        <br/>
+        <img src="data:image/jpeg;base64,{{ captcha_base64 }}" alt="Mã xác nhận"/>
+        <br/>
+        <input type="number" name="result" placeholder="Vui lòng nhập kết quả">
+        <br/>
+        <input type="submit" value="Xác nhận">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

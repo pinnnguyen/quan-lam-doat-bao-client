@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Vị này đại hiệp, đổi mới nhiệm vụ yêu cầu một hai Hoàng kim, ngươi Xác định muốn đổi mới không? ( đem trực tiếp từ ngươi tiền trang tài khoản khấu trừ. )
+    <br/>
+    <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/change') }}'">Xác định làm mới</button>
+    {#    <a href="{{ url(request, 'Map/ConsecutiveMission/change') }}">Xác định làm mới</a> #}
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

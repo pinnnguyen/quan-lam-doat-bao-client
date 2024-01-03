@@ -1,0 +1,58 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if thing.is_body %}
+        {{ thing.body_name }}
+    {% else %}
+        {% if thing.thing_id == 213 %}
+            {{ get_hans_money(thing.number) }}
+        {% else %}
+            {% if thing.equipped %}□{% endif %}{{ get_hans_number(thing.number) }}{{ thing.row.unit }}{{ thing.row.name }}
+        {% endif %}
+        <br/>
+        {% if thing.row.description is not empty %}
+            {{ thing.row.description }}
+            <br/>
+        {% endif %}
+        {% if thing.row.kind == '装备' %}
+            {% if thing.row.attack %}
+                Lực công kích: {{ thing.row.attack }}
+                <br/>
+            {% endif %}
+            {% if thing.row.defence %}
+                Lực phòng ngự: {{ thing.row.defence }}
+                <br/>
+            {% endif %}
+            {% if thing.row.dodge %}
+                Né tránh lực: {{ thing.row.dodge }}
+                <br/>
+            {% endif %}
+            {% if thing.row.is_no_depreciation %}
+                Không bao giờ hao mòn
+                <br/>
+            {% else %}
+                Bền độ: {{ thing.durability }}/{{ thing.row.max_durability }}
+                <br/>
+                Mới tinh độ: {{ thing.statusString }}
+                <br/>
+            {% endif %}
+            {% if thing.row.is_no_drop %}
+                Không thể bỏ được
+                <br/>
+            {% endif %}
+            {% if thing.equipped %}
+                <a href="{{ url(request, thing.removeUrl) }}">Loại bỏ</a>
+            {% else %}
+                <a href="{{ url(request, thing.putOnUrl) }}"}">Trang Bị</a>
+            {% endif %}
+            <br/>
+        {% endif %}
+    {% endif %}
+    {% if not thing.equipped %}
+        <a href="{{ url(request, thing.throwUrl) }}">Loại bỏ</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

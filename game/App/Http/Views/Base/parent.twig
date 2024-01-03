@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/c.css">
+    <title>{% if title is not empty %}{{ title }} - {% endif %}{{ config('Game', 'NAME') }}</title>
+</head>
+<body>
+    <div>
+        {% block body %}
+        {% endblock %}
+        <br/>
+        ({{ get_execute_millisecond_time(request) }})
+        {% if request.userAgent %}
+            <br/>
+            ({{ get_ua_info(request) }})
+        {% endif %}
+        <br/>
+        {{ get_current_datetime() }}
+    </div>
+</body>
+</html>

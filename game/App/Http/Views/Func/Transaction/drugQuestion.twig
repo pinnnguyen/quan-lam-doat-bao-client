@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi hiện tại cùng{{ o_role_row.name }}Giao dịch{{ role_drug.row.name }}
+    <br/>
+    Ngươi tưởng giao dịch nhiều ít{{ role_drug.row.unit }}{{ role_drug.row.name }}？
+    <form action="{{ url(request, post_url) }}" method="post">
+        Thỉnh đưa vào số lượng:
+        <br/>
+        <input type="text" name="number">
+        <br/>
+        Thỉnh đưa vào ngươi tưởng đổi lấy bạc trắng số lượng:
+        <br/>
+        <input type="text" name="price">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

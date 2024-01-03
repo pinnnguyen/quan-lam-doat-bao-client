@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Người chèo thuyền trên dưới đánh giá ngươi một chút: Khách quan, là muốn đi {{ name }}không?
+    <br/>
+    {{ message }}
+    <br/>
+    Khách quan chỉ cần tiêu phí một hai Hoàng kim, lão phu liền có thể độ khách quan qua đi.
+    <br/>
+    <a href="{{ url(request, aboard_url) }}">Lên thuyền</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

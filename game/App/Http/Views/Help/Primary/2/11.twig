@@ -1,0 +1,34 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Phần này chủ yếu hiển thị các thông tin như tuổi tác, trạng thái võ thuật, vật phẩm lắp ráp, cấp độ kỹ năng hiệu quả, v.v. Tại đây bạn có thể nhấp và lưu dữ liệu. Nhấp để xem nó làm gì?)
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/12') }}">Cài Đặt</a>
+    <a href="{{ url(request, 'Help/Primary/description/2/13') }}">Lưu trữ dữ liệu</a>
+    <br/>
+    【 bình dân 】 bình thường bá tánh Jacky
+    <br/>
+    Ngươi anh tuấn tiêu sái, phong độ nhẹ nhàng.
+    <br/>
+    Năm nay mười bốn tuổi.
+    <br/>
+    Võ công thoạt nhìn giống như bất kham một kích, ra tay tựa hồ cực nhẹ.
+    <br/>
+    Ngươi thoạt nhìn khí huyết tràn đầy.
+    <br/>
+    Trên người của ngươi có chứa:
+    <br/>
+    □ trúc kiếm
+    <br/>
+    Cấp độ kỹ năng
+    <br/>
+    Cơ bản quyền cước:0
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/2') }}">Trở lại Trạng thái / lựa chọn</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

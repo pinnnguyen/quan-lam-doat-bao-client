@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    [ về Đặc thù võ công]
+<br/>
+Đặc thù võ công yêu cầu cùng cơ sở Võ Công mới có thể đủ có hiệu lực.
+<br/>
+Có thể ở Trạng thái cơ thể→ phối trí kỹ năng → sau đó lựa chọn bất đồng cơ sở võ công tiến hành phối trí.
+<br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

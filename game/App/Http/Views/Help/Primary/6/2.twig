@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Để mọi người dễ dàng chấp nhận hơn{{ config('Game', 'NAME') }}, chúng tôi đặc biệt áp dụng chế độ cổ điển. Phong cách giao diện bản đồ của chế độ này tương tự như phong cách săn tìm kho báu của Trung Quốc mà bạn nhớ. Người chơi cũ sẽ có trải nghiệm đáng nhớ hơn khi sử dụng phong cách này.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/6/1') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

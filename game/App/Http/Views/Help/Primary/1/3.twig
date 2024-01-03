@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Các cảnh khác nhau có thể có chức năng khác nhau, ví dụ như bạn có thể ngủ trong nhà trọ Trường An, khi ngủ, giá trị sức khỏe và tinh thần của bạn có thể được phục hồi, nhưng ngủ cần một khoảng thời gian. Vui lòng nhấn Trở lại cảnh tượng để tiếp tục hướng dẫn. )
+    <br/>
+    Bây giờ bạn đang ngủ ngon
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/3') }}">Chờ đợi</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

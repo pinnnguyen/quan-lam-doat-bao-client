@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Xác định để ở đây {{ role_thing.row.unit }}{{ role_thing.row.name }} cho đi 【{{ npc.name }}】không？
+    <br/>
+    <a href="{{ url(request, role_thing.give_url) }}">Xác định cho đi</a>
+    <br/>
+    <a href="{{ url(request, role_thing.back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

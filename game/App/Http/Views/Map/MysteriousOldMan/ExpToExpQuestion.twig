@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi muốn chuyển hóa bao nhiêu năm Tu vi? Ngươi nhiều nhất có thể chuyển hóa{{ year }} năm tu vi。
+    <form action="{{ url(request, 'Map/MysteriousOldMan/ExpToExp') }}" method="post">
+        Đưa vào số năm:<input type="text" name="year">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

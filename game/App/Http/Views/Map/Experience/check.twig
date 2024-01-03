@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if experience is not empty %}
+        Ngươi cộng tích tụ {{ experience }} để tu hành.
+    {% else %}
+        Ngươi chưa bao giờ có tích tụ quá Tu hành.
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

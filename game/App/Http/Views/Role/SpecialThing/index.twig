@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if djs is not empty %}
+        {% for dj in djs %}
+            <a href="{{ url(request, dj.viewUrl) }}">{{ get_hans_number(dj.number) }}{{ dj.row.unit }}{{ dj.row.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi nhiều nhất thu hồi {{ experience }}Tu vi。
+    <br/>
+    Hãy nhập số năm Tú vi ngươi muốn lấy về:
+    <form action="{{ url(request, 'Map/Experience/withdrawPost') }}" method="post">
+        <input type="text" name="year" placeholder="Vui lòng nhập số năm" min="1" maxlength="9">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

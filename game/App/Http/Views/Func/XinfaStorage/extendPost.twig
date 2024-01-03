@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi sử dụng một cây tơ vàng gỗ nam xây dựng thêm tâm pháp kho hàng. Tâm pháp kho hàng dung lượng gia tăng rồi 2 cách.
+    <br/>
+    <a href="{{ url(request, 'Func/XinfaStorage/extendPost') }}">Tiếp tục sử dụng</a>
+    <br/>
+    <a href="{{ url(request, 'Func/XinfaStorage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

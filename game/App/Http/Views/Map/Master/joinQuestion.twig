@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi xác định muốn gia nhập{{ sect }} bái {{ npc.name }} vi sư không?
+    <br/>
+    Một ngày vi sư, chung thân vi phụ!
+    <br/>
+    <a href="{{ url(request, joinUrl) }}">Ta muốn Bái sư</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Ta lại suy xét suy xét……</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

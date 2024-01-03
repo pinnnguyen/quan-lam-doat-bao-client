@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if friends is not empty %}
+        {% for friend in friends %}
+            {% if friend.viewUrl is not empty %}
+                <a href="{{ url(request, friend.viewUrl) }}">{{ friend.name }}</a>
+                <a href="{{ url(request, friend.unblockUrl) }}">Xóa danh sách đen</a>
+                <br/>
+            {% else %}
+                {{ friend.name }}
+                <a href="{{ url(request, friend.unblockUrl) }}">Xóa danh sách đen</a>
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        Bạn chưa chặn bất kỳ ai.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Contact/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

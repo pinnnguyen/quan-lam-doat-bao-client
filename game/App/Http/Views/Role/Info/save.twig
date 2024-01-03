@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    存档成功
+    <br/>
+    注：一般而言玩家无需手动进行存档，因为系统会每隔一定时间自动存档。
+    <br/>
+    <a href="{{ url(request, 'Role/Info/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

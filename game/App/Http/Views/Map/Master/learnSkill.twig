@@ -1,0 +1,20 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi hướng {{ npc.name }} thỉnh giáo về {{ skill.name }} kỹ năng.
+    <br/>
+    {% if message %}
+        {{ message }}
+        <br/>
+    {% else %}
+        Ngươi nghe xong {{ npc.name }} chỉ đạo, tựa hồ có chút tâm đắc.
+        <br/>
+        ({{ lv }}Cấp/{{ percent }}%)
+        <br/>
+        <a href="{{ url(request, continueUrl) }}">Tiếp tục học tập</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if message %}
+        {{ message }}
+    {% else %}
+        {{ npc.name }}Nói: Vào được{{ sect }},Đương đoàn kết hỗ trợ!
+        <br/>
+        Ngươi quỳ xuống phương hướng {{ npc.name }} Cung cung kính kính mà dập đầu ba cái, kêu lên: “Sư phụ!”
+        <br/>
+        {{ npc.name }}Thu ngươi làm {{ sect }}Đệ{{ get_hans_number(seniority) }}Đại đệ tử.
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi muốn vứt bỏ cái này phong đưa cho【{{ map.name }}】 của 【{{ npc.name }}】 thư từ không？
+    <br/>
+    <a href="{{ url(request, role_thing.throwUrl) }}">Xác định vứt bỏ</a>
+    <br/>
+    <a href="{{ url(request, role_thing.backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

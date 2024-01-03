@@ -1,0 +1,23 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【VIP đứng hàng】
+    <br/>
+    {% for top in tops %}
+        {% if top.online %}
+            Đệ{{ top.top }}Danh：<a href="{{ url(request, top.viewUrl) }}">{{ top.name }}</a> ({{ top.value }})
+        {% else %}
+            Đệ{{ top.top }}Danh：{{ top.name }} ({{ top.value }})
+        {% endif %}
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Role/Top/VipLevel') }}">领取VIP等级奖励</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/VipDay') }}">领取每日奖励</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/VipRe') }}">规则</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ trang bị bền / sửa chữa ]
+<br/>
+Mỗi kiện trang bị đều có được Bền độ, trang bị càng cao cấp cơ sở Bền độ càng cao, mặc trang bị chiến đấu sẽ tiêu hao trang bị Bền độ. Bền độ vì 0 đem vô pháp lại sử dụng, lúc này liền yêu cầu sửa chữa trang bị.
+<br/>
+Mỗi sửa chữa một lần sau lớn nhất bền đều sẽ rớt nhất định tỉ lệ, đương lớn nhất bền vì 0 liền không thể sửa chữa.
+<br/>
+[ không xong đặc hiệu trang bị ]
+<br/>
+Cao cấp trang bị có được không xong đặc hiệu, bị đánh chết sau sẽ không rơi xuống. Nhưng là giống nhau có bền, sửa chữa sau cũng sẽ rớt lớn nhất bền.
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

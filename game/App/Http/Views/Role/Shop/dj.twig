@@ -1,0 +1,32 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【Shop】
+    {% if vip > 7 %}
+        <span style="color: purple; font-weight: bolder;">[VIP{{ vip }}]</span>
+    {% elseif vip > 4 %}
+        <span style="color: red; font-weight: bolder;">[VIP{{ vip }}]</span>
+    {% elseif vip > 0 %}
+        <span style="color: orange; font-weight: bolder;">[VIP{{ vip }}]</span>
+    {% else %}
+        [VIP{{ vip }}]
+    {% endif %}
+    <br/>
+    Số dư Nguyên Bảo:{{ yuanbao }} <a href="{{ url(request, 'Role/Shop/zz') }}">Nhà tài trợ Nguyên Bảo</a>
+    <br/>
+    Ngài có thể mua sắm dưới đạo cụ:
+    <br/>
+    {% for dj in djs %}
+        {% if dj.is_sell %}
+            <a href="{{ url(request, dj.viewUrl) }}">{{ dj.name }}（{{ dj.price }}Nguyên Bảo）</a>
+            <br/>
+        {% endif %}
+    {% endfor %}
+    Đạo cụ
+    <a href="{{ url(request, 'Role/Shop/equipment') }}"}">Trang Bị</a>
+    <a href="{{ url(request, 'Role/Shop/xinfa') }}">Tâm Pháp</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Bạn đã thêm tôi như một đám mây như một người bạn
+     <br/>
+     Bằng cách này, nếu sau này bạn muốn trò chuyện với tôi, bạn có thể nhấp vào để trò chuyện từ Danh sách bạn bè, giống như QQ.
+     <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/7') }}">Tiếp tục</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

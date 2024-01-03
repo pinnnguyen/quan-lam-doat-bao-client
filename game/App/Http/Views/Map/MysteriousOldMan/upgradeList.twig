@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trên người của ngươi mang theo dưới đây này đó tâm pháp:
+    <br/>
+    Điểm đánh ngươi muốn tăng lên cấp bậc tâm pháp
+    <br/>
+    {% for role_xinfa in role_xinfas %}
+        <a href="{{ url(request, role_xinfa.upgradeQuestionUrl) }}">{% if role_xinfa.practiced %}*{% endif %}{% if role_xinfa.equipped %}#{% endif %}{% if role_xinfa.private_name %}{{ role_xinfa.private_name }}của{% endif %}{{ role_xinfa.row.name }}</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

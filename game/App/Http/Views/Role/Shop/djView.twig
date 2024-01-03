@@ -1,0 +1,32 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ dj.name }}
+    <br/>
+    {{ dj.description }}
+    <br/>
+    {{ dj.status }}
+    <br/>
+    Đặc hiệu: Không thể rơi xuống
+    <br/>
+    Hiệu ứng đặc biệt: không thể loại bỏ
+    <br/>
+    Hiệu ứng: Không thể giao dịch
+    <br/>
+    Hiệu ứng đặc biệt: Không thể đưa ra
+    <br/>
+    Bạn muốn mua bao nhiêu{{ dj.unit }}{{ dj.name }}？
+    <form action="{{ url(request, dj.buyQuestionUrl) }}" method="post">
+        Nhập số lượng mua:<input type="number" name="number" min="1" maxlength="9" size="6">
+        <br/>
+        <input type="submit" value="Mua">
+    </form>
+    <a href="{{ url(request, dj.buyOneQuestionUrl) }}">一{{ dj.unit }}</a> |
+    <a href="{{ url(request, dj.buyFiveQuestionUrl) }}">五{{ dj.unit }}</a> |
+    <a href="{{ url(request, dj.buyTenQuestionUrl) }}">十{{ dj.unit }}</a> |
+    <a href="{{ url(request, dj.buyFiftyQuestionUrl) }}">五十{{ dj.unit }}</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Shop/dj') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

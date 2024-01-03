@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Xác định muốn vứt bỏ này bổn{% if role_xinfa.private_name %}{{ role_xinfa.private_name }}của{% endif %}{{ role_xinfa.row.name }}không？
+    <br/>
+    <a href="{{ url(request, throwUrl) }}">Xác định</a>
+    <br/>
+    <a href="{{ url(request, backUrl) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

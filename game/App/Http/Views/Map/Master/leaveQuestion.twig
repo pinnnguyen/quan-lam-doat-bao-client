@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi tưởng hảo muốn bội phản sư môn không?
+    <br/>
+    Phản bội sư sẽ đã chịu môn phái kỹ năng hạ thấp một nửa trừng phạt!
+    <br/>
+    <a href="{{ url(request, leaveUrl) }}">Ta muốn phản bội sư</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Ta lại suy xét suy xét……</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

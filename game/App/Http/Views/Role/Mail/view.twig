@@ -1,0 +1,26 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thời gian:{{ mail.time }}
+    <br/>
+    Nội dung:
+    <br/>
+    {{ mail.content }}
+    <br/>
+    {% if mail.kind != '无' %}
+        Phụ lục:
+        <br/>
+        {{ mail.enclosure }}
+        <br/>
+        {% if mail.state == 1 %}
+            <a href="{{ url(request, receive_url) }}">Nhận</a>
+            <br/>
+        {% else %}
+            Đã nhận
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Mail/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

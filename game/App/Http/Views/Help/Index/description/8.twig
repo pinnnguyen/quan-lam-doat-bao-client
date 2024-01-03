@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    [ trò chơi giao lưu ]
+<br/>
+Trò chơi giao lưu phương thức chủ yếu chia làm hai loại: Kênh trò chuyện nói chuyện phiếm, diễn đàn phát thiếp giao lưu.
+<br/>
+1, Kênh trò chuyện: Chia làm ba loại: Tư nhân, công cộng, bang phái.
+<br/>
+2, diễn đàn giao lưu: Ngươi có thể đi trước giang hồ diễn đàn, ở diễn đàn nội phát thiếp cùng đại gia tiến hành giao lưu.
+<br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

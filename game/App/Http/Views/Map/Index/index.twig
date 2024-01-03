@@ -1,0 +1,105 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if broadcasts is not empty %}
+        {% for broadcast in broadcasts %}
+            {% if broadcast.kind == 6 %}
+                {{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 4 %}
+                【<a href="{{ url(request, 'Role/Chat/jianghu') }}">Giang hồ</a>】{{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 1 %}
+                【<a href="{{ url(request, 'Role/Chat/public') }}">Công cộng</a>】<a
+                    href="{{ url(request, broadcast.url) }}">{{ broadcast.name }}</a> nói với mọi người: {{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 8 %}
+                【 giao dịch 】{{ broadcast.content }}
+                <br/>
+                <a href="{{ url(request, broadcast.view_url) }}">Xem xét vật phẩm</a>
+                {#                <a href="{{ url(request, broadcast.consent_url) }}">Đồng ý giao dịch</a> #}
+                {#                <a href="{{ url(request, broadcast.refuse_url) }}">Cự tuyệt giao dịch</a> #}
+                <br/>
+            {% elseif broadcast.kind == 9 %}
+                【Quà】{{ broadcast.content }}
+                <br/>
+                <a href="{{ url(request, broadcast.view_url) }}">Xem xét vật phẩm</a>
+                {#                <a href="{{ url(request, broadcast.consent_url) }}">Nhận quà tặng</a> #}
+                {#                <a href="{{ url(request, broadcast.refuse_url) }}">Từ chối nhận</a> #}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if come_footprints is not empty %}
+        {% for come_footprint in come_footprints %}
+            {{ come_footprint }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if map_messages is not empty %}
+        {% for map_message in map_messages %}
+            {{ map_message }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if messages is not empty %}
+        {% for message in messages %}
+            {{ message }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {{ map.name }}
+    <br/>
+    {% if actions is not empty %}
+        {% for action in actions %}
+            <a href="{{ url(request, action.url) }}">{{ action.name }}</a>{% if not loop.last %} |{% endif %}
+        {% endfor %}
+        <br/>
+    {% endif %}
+    {% if chars is not empty %}
+        Bạn đã gặp <a
+            href="{{ url(request, 'Map/View/index') }}">{% for char in chars %}{% if loop.index <= 15 %}{{ char.name }}{% if not loop.last and loop.index < 15 %},{% endif %}{% endif %}{% if loop.index is same as 16 %} Chờ {% endif %}{% endfor %}</a>
+        <br/>
+    {% endif %}
+    {% if things is not empty %}
+        Nơi này có<a
+            href="{{ url(request, 'Map/Thing/index') }}">{% for thing in things %}{% if loop.index <= 15 %}{{ thing }}{% if not loop.last and loop.index < 15 %},{% endif %}{% endif %}{% if loop.index is same as 16 %} Chờ {% endif %}{% endfor %}</a>
+        <br/>
+    {% endif %}
+    Vui lòng chọn hướng đi
+    <br/>
+    {% if north %}
+        Hướng Bắc:<a href="{{ url(request, north.moveUrl) }}">{{ north.name }}↑</a>
+        <br/>
+    {% endif %}
+    {% if west %}
+        Hướng Tây:<a href="{{ url(request, west.moveUrl) }}">{{ west.name }}←</a>
+        <br/>
+    {% endif %}
+    {% if east %}
+        Hướng Đông:<a href="{{ url(request, east.moveUrl) }}">{{ east.name }}→</a>
+        <br/>
+    {% endif %}
+    {% if south %}
+        Hướng Nam:<a href="{{ url(request, south.moveUrl) }}">{{ south.name }}↓</a>
+        <br/>
+    {% endif %}
+    {% if leave_footprints is not empty %}
+        {% for leave_footprint in leave_footprints %}
+            {{ leave_footprint }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if descriptions is iterable %}
+        {% for desc in descriptions %}{% if desc is iterable %}<a
+            href="{{ url(request, desc.url) }}">{{ desc.name }}</a>{% else %}{{ desc | raw }}{% endif %}{% endfor %}
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trạng thái / lựa chọn</a>
+    <br/>
+    <a href="{{ url(request, 'Map/WhatCanIDo/index') }}">Ta có thể làm cái gì</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Nhìn quanh tứ phương</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

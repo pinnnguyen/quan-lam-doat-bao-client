@@ -1,0 +1,10 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    玩家除了真名外，还可以自己设定喜欢的昵称，用于区分名字相似度极高的玩家。昵称最多可以设置六个汉字，且仅可以输入汉字。
+
+    <br/>
+    <a href="{{ url(request, 'Role/Info/setting') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

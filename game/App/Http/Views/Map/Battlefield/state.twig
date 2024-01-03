@@ -1,0 +1,54 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if broadcasts is not empty %}
+        {% for broadcast in broadcasts %}
+            {% if broadcast.kind == 6 %}
+                {{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 4 %}
+                【 giang hồ 】{{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 1 %}
+                【 công cộng 】{{ broadcast.name }} nói với mọi người: {{ broadcast.content }}
+                <br/>
+            {% elseif broadcast.kind == 8 %}
+                【 giao dịch 】{{ broadcast.content }}
+                <br/>
+                <a href="{{ url(request, broadcast.view_url) }}">Xem xét vật phẩm</a>
+{#                <a href="{{ url(request, broadcast.consent_url) }}">Đồng ý giao dịch</a>#}
+{#                <a href="{{ url(request, broadcast.refuse_url) }}">Cự tuyệt giao dịch</a>#}
+                <br/>
+            {% elseif broadcast.kind == 9 %}
+                【Quà】{{ broadcast.content }}
+                <br/>
+                <a href="{{ url(request, broadcast.view_url) }}">Xem xét vật phẩm</a>
+{#                <a href="{{ url(request, broadcast.consent_url) }}">Nhận quà tặng</a>#}
+{#                <a href="{{ url(request, broadcast.refuse_url) }}">Từ chối nhận</a>#}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if footprints is not empty %}
+        {% for footprint in footprints %}
+            {{ footprint }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Battlefield/state') }}">Kiểm tra trạng thái</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/skill') }}">Tuyệt chiêu</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/xinfa') }}">Tâm Pháp</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/surrender') }}">Đầu hàng</a> | 
+    <a href="{{ url(request, 'Map/Battlefield/escape') }}">Chạy trốn</a>
+    <br/>
+    你{{ status }}。
+    {% if messages is not empty %}
+        {% for message in messages %}
+            <br/>
+            {{ message }}
+        {% endfor %}
+    {% elseif object is not empty %}
+        <br/>
+        Ngươi thấy {{ object.name }} hành động, ý đồ tìm kiếm cơ hội một kích thành công.
+    {% endif %}
+{% endblock %}

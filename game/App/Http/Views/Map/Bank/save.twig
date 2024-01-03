@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngài hiện tại trên người cùng sở hữu {{ get_hans_money(bag_money) }}。
+    <br/>
+    你要存入 bao nhiêu {{ unit }}？
+    <br/>
+    Nhập số lượng:
+    <form action="{{ url(request, savePostUrl) }}" method="post">
+        <input type="text" name="number" placeholder="Vui lòng nhập số lượng" min="1" maxlength="9">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Bank/saveIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

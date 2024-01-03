@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if no_mission %}
+        Hiện tại bạn không có nhiệm vụ nào để hoàn thành!
+        <br/>
+    {% endif %}
+    {% if qunfanglou_mission_messages is not empty %}
+        {% for qunfanglou_mission_message in qunfanglou_mission_messages %}
+            {{ qunfanglou_mission_message }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if display_consecutive_mission %}
+        <a href="{{ url(request, 'Map/ConsecutiveMission/view') }}">Liên tục nhiệm vụ</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

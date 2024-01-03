@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if mails is not empty %}
+        {% for mail in mails %}
+            <a href="{{ url(request, mail.viewUrl) }}">{{ mail.title }}({{ mail.time }})</a>
+            <br/>
+        {% endfor %}
+    {% else %}
+        Không có thư.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, last_page) }}">Trang Trước</a>
+    <a href="{{ url(request, next_page) }}">Trang Sau</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Contact/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

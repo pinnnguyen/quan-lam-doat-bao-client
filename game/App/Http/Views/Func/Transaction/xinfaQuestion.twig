@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi hiện tại cùng{{ o_role_row.name }}Giao dịch một quyển{{ role_xinfa.row.name }}
+    <form action="{{ url(request, post_url) }}" method="post">
+        Thỉnh đưa vào ngươi tưởng đổi lấy bạc trắng số lượng:
+        <br/>
+        <input type="text" name="price">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

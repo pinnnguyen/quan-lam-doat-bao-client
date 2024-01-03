@@ -1,0 +1,25 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【 trò chơi nhập môn chỉ đạo 】
+    <br/>
+    Giang hồ thế giới, huyết vũ tinh phong, phía dưới giáo trình đem làm ngươi nhanh chóng hiểu biết trò chơi thao tác, mau chóng đi vào cái này võ hiệp thế giới, trở thành giang hồ cao thủ, tiếu ngạo võ lâm. Thỉnh đi theo chỉ nam đi bước một quen thuộc {{ config('Game', 'NAME') }}, đương ngươi quen thuộc sau ngươi sẽ vì hắn kinh ngạc cảm thán, mê muội. Mười năm đại hiệp thỉnh xem nhẹ, vô luận ngươi đã từng là mộng võng đại hiệp vẫn là không võng đại hiệp đều hoan nghênh về nhà, đã lâu! Thỉnh trực tiếp tiến vào giang hồ, Bắt đầu phiên vân phúc vũ đi, gia thanh hồi! Ma mới thỉnh kỹ càng tỉ mỉ đọc công lược, đi theo công lược trước quen thuộc trò chơi:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/1') }}">Hành tẩu thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/1') }}">Thuộc tính thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/1') }}">Giao lưu thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/1') }}">Học nghệ thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/5/1') }}">Chiến đấu thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/6/1') }}">Thực đơn thiên</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại hướng dẫn</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

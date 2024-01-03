@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi trước mặt nhưng tích tụ Tu hành vì {{ experience }}。
+    <br/>
+    Chú ý một khi ngươi tích tụ Tu hành như vậy ngươi trước mặt Tu hành giá trị sẽ hạ thấp, đồng thời sẽ hạ thấp ngươi Sinh mệnh, Lực công kích chờ, thỉnh tưởng hảo lại Xác định.
+    <br/>
+    Thỉnh đưa vào ngươi tưởng tích tụ nhiều ít năm Tu hành:
+    <form action="{{ url(request, 'Map/Experience/savePost') }}" method="post">
+        <input type="text" name="year" placeholder="Vui lòng nhập số năm" min="1" maxlength="9">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Thing/index') }}">Đồ Đạc</a>
+    <br/>
+    Trên người của ngươi mang theo dưới đây chữa thương dược:
+    <br/>
+    {% if drugs is not empty %}
+        {% for drug in drugs %}
+            <a href="{{ url(request, drug.viewUrl) }}">
+                {{ get_hans_number(drug.number) }}{{ drug.row.unit }}{{ drug.row.name }}
+            </a>
+            <a href="{{ url(request, drug.useUrl) }}">Sử dụng</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

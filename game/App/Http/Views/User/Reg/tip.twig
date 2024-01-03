@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <img src="{{ config('Game', 'LOGO') }}" alt="LOGO" width="160px" height="100px"/>
+    <br/>
+    * Cổng đăng ký tạm thời bị đóng. Để đăng ký tài khoản mới, vui lòng liên hệ với quản trị viên nhóm QQ.
+    <br/>
+    * QQ<a href="{{ config('Game', 'QQ_GROUP_LINK') }}">{{ config('Game', 'QQ_GROUP') }}</a>
+    <br/>
+    Bạn đã có một tài khoản chưa?&nbsp;<a href="login">Bấm để đăng nhập</a>
+{% endblock %}

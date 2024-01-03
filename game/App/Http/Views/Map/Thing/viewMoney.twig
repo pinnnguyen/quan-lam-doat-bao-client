@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ get_hans_money(money.number) }}
+    <br/>
+    <a href="{{ url(request, pickUpUrl) }}">Nhặt lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

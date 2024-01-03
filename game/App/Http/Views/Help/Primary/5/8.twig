@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Nếu ngươi đặc thù chiêu thức không có cùng Cơ bản võ công phối hợp hoặc là trang bị vũ khí không đúng, cùng với cấp bậc không đủ 5 cấp, hệ thống liền sẽ cấp ra phía dưới nhắc nhở
+    <br/>
+    “Thỉnh đến Kỹ năng phối trí trung, đem nên võ công đối ứng Đặc thù võ công phối hợp.” Hoặc là “Chỉ có nên đặc thù công phu đạt tới 5 cấp mới có thể phát tuyệt chiêu”
+    <br/>
+    Nếu ngươi học xong tuyệt chiêu, hệ thống liền cấp ra tuyệt chiêu danh sách, thỉnh điểm đánh “Cúc lâu thải nguyệt”
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/5/9') }}">Cúc lâu thải nguyệt</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

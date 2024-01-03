@@ -1,0 +1,27 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+       [ trang bị loại hình ]
+<br/>
+Trong trò chơi trang bị loại hình chia làm: Vũ khí, quần áo, nội giáp, giày.
+<br/>
+Vũ khí: Chủ yếu gia tăng Lực công kích.
+<br/>
+Quần áo: Chủ yếu gia tăng Lực phòng ngự.
+<br/>
+Hộ giáp: Chủ yếu gia tăng Lực phòng ngự.
+<br/>
+Giày: Chủ yếu gia tăng Né tránh lực.
+<br/>
+[ vũ khí loại hình ]
+<br/>
+Vũ khí chia làm: Đao, kiếm, trảo.
+<br/>
+Trang bị đối ứng loại hình vũ khí mới có thể sử dụng đối ứng loại hình võ công.
+<br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ get_hans_number(role_thing.number) }}{{ role_thing.row.unit }}{{ role_thing.row.name }}
+    <br/>
+    {% if role_thing.row.description is not empty %}
+        {{ role_thing.row.description }}
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, role_thing.openUrl) }}">Mở ra</a>
+    {% if is_full %}(Tâm pháp ba lô đầy){% endif %}
+    <br/>
+    <a href="{{ url(request, role_thing.throwQuestionUrl) }}">Loại bỏ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

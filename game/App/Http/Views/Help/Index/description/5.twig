@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ trò chơi nhiệm vụ ]
+<br/>
+Trong trò chơi nhiệm vụ chủ yếu chia làm dưới mấy loại: Nhiệm vụ chủ tuyến, nhiệm vụ chi nhánh, chạy hoàn nhiệm vụ, truyền tin nhiệm vụ cùng với bộ phận đặc thù nhiệm vụ.
+<br/>
+Hoàn thành nhiệm vụ có thể đạt được phong phú khen thưởng, nhất định không cần bỏ lỡ nga.
+<br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

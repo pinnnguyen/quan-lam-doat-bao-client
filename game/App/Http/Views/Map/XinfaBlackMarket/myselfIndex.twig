@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% for role_xinfa in role_xinfas %}
+    <a href="{{ url(request, role_xinfa.viewUrl) }}">
+        一本{{ role_xinfa.row.name }}</a>{% if role_xinfa.is_expire %}(Đã hết hạn){% endif %}
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

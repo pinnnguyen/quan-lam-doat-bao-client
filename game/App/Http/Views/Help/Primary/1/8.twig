@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Nếu là NPC, hắn khả năng sẽ đồng ý cùng ngươi luận võ, cũng có thể không đồng ý, nếu là người chơi, ngươi yêu cầu Chờ đợi hắn đồng ý cùng ngươi Luận bàn, Luận bàn sẽ không tạo thành tử vong. Về chiến đấu kỹ càng tỉ mỉ thuyết minh chờ lát nữa ngươi có thể đi nhìn xem chiến đấu thiên giáo trình.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/5') }}">Trở lại nhân vật tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

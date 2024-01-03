@@ -1,0 +1,32 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <img src="{{ config('Game', 'LOGO') }}" alt="LOGO" width="160px" height="100px"/>
+    <br/>
+    Trò chơi trực tuyến trên thiết bị di động số một Trung Quốc với hàng nghìn người trực tuyến,
+    <br />
+    Nơi này có rượu, có kiếm, có nữ nhân.
+    <br />
+    Có tình cảm mãnh liệt, có giết chóc, nơi này chính là di động thượng giang hồ.
+    <br />
+    {% if message is not empty %}
+        <span style="color: #ff0000;">{{ message }}</span>
+        <br/>
+    {% endif %}
+    <form action="" method="post">
+        Tài khoản:
+        <br/>
+        <label>
+            <input type="text" name="username">
+        </label>
+        <br/>
+        Mật khẩu:
+        <br/>
+        <label>
+            <input type="password" name="password">
+        </label>
+        <br/>
+        <input type="submit" value="Đăng nhập">
+    </form>
+    Không tài khoản?&nbsp;<a href="reg">Bấm để đăng ký</a>
+{% endblock %}

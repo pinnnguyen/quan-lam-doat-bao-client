@@ -1,0 +1,20 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if thing.number > 1 %}
+        Ngươi muốn vứt bỏ bao nhiêu{{ thing.row.unit }}{{ thing.row.name }}？
+        <form action="{{ url(request, thing.throwUrl) }}" method="post">
+            <input type="text" name="number" value="1" min="1" maxlength="9" size="10">
+            <br/>
+            <input type="submit" value="Xác định vứt bỏ">
+        </form>
+    {% else %}
+        Ngươi muốn vứt bỏ cái này{{ thing.row.unit }}{{ thing.row.name }}không？
+        <br/>
+        <a href="{{ url(request, thing.throwUrl) }}">Xác định vứt bỏ</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

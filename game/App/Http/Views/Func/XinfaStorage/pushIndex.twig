@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if xinfas is empty %}
+        Trước mặt không có nhưng tồn nhập kho hàng tâm pháp.
+        <br/>
+    {% else %}
+        Ngươi muốn tồn nhập cái gì tâm pháp?
+        <br/>
+        {% for xinfa in xinfas %}
+            <a href="{{ url(request, xinfa.pushUrl) }}">Một quyển{% if xinfa.private_name %}{{ xinfa.private_name }}của{% endif %}{{ xinfa.row.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Func/XinfaStorage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

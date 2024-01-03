@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Muốn biết chính mình giang hồ hiểu biết rất cao không? Mỗi ngày có thể tới nơi này trả lời lưỡng đạo vấn đề, trả lời chính xác sẽ có khen thưởng nha.
+    <br/>
+    <a href="{{ url(request, 'Map/Answer/question1') }}">Khiêu chiến đệ nhất đề</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Answer/question2') }}">Khiêu chiến đệ nhị đề</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/Index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

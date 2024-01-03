@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ trò chơi bang phái ]
+<br/>
+Trong trò chơi người chơi có thể tự do sáng tạo bang phái, gia nhập bang phái.
+<br/>
+Tục ngữ nói: Song quyền khó địch bốn tay, tìm kiếm cùng chung chí hướng bằng hữu, gia nhập bang phái cùng nhau lưu lạc giang hồ mới là sáng suốt cử chỉ.
+<br/>
+Sáng tạo bang phái sau yêu cầu quản lý nhân viên tiến hành phê duyệt, phê duyệt thông qua sau mới có thể online.
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ npc.name }}Tổng cộng sẽ dưới đây {{ get_hans_number(number) }} kỹ năng:
+    <br/>
+    {% for skill in skills %}
+        <a href="{{ url(request, skill.learnUrl) }}">{{ skill.row.name }}{{ skill.skill_lv }} cấp (0%)</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

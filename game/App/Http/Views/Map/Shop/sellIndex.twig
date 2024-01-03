@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% for role_thing in role_things %}
+        {% if role_thing.row.is_no_drop %}
+            <a href="{{ url(request, role_thing.sellUrl) }}">一{{ role_thing.unit }}「{{ role_thing.name }}
+                」(收购价{{ get_hans_money(role_thing.sellPrice) }})</a>
+            <br/>
+        {% else %}
+            <a href="{{ url(request, role_thing.sellUrl) }}">一{{ role_thing.unit }}{{ role_thing.name }}
+                (收购价{{ get_hans_money(role_thing.sellPrice) }})</a>
+            <br/>
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

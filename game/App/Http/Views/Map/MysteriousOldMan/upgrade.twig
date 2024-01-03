@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thành công tăng lên {% if role_xinfa.private_name %}{{ role_xinfa.private_name }}của{% endif %}{{ role_xinfa.row.name }} lớn nhất cấp bậc vì {{ role_xinfa.next_max_lv }} cấp
+    <br/>
+    Sở yêu cầu {{ role_xinfa.money }} 2 Bạch ngân đã từ ngươi tiền trang khấu trừ!
+    <br/>
+    <a href="{{ url(request, role_xinfa.upgradeUrl) }}">Tiếp tục tăng lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if thing.row.is_no_drop %}
+        Một {{ thing.row.unit }}「{{ thing.row.name }}」
+    {% else %}
+        Một {{ thing.row.unit }}{{ thing.row.name }}
+    {% endif %}
+    <br/>
+    {% if thing.row.description %}
+        {{ thing.row.description }}
+        <br/>
+    {% endif %}
+    {% if thing.row.kind == '装备' %}
+        {% if thing.row.attack %}
+            Lực công kích: {{ thing.row.attack }}
+            <br/>
+        {% endif %}
+        {% if thing.row.defence %}
+            Lực phòng ngự: {{ thing.row.defence }}
+            <br/>
+        {% endif %}
+        {% if thing.row.dodge %}
+            Né tránh lực: {{ thing.row.dodge }}
+            <br/>
+        {% endif %}
+        {% if thing.row.is_no_depreciation %}
+            Vĩnh không mài mòn
+            <br/>
+        {% else %}
+            Bền độ: {{ thing.durability }}/{{ thing.row.max_durability }}
+            <br/>
+            Mới tinh độ: {{ thing.statusString }}
+            <br/>
+        {% endif %}
+        {% if thing.row.is_no_drop %}
+            Không thể bỏ được
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, pickUpUrl) }}">Nhặt lên</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Thing/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

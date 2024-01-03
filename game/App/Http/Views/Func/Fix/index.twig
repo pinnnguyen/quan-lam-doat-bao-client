@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if things is empty %}
+        Ngươi trên người không có yêu cầu sửa chữa trang bị.
+        <br/>
+    {% else %}
+        Trên người của ngươi có thể sửa chữa đồ vật:
+        <br/>
+        {% for thing in things %}
+            <a href="{{ url(request, thing.questionUrl) }}">□一{{ thing.row.unit }}{{ thing.row.name }}</a>
+            （bền{{ thing.durability }}/{{ thing.row.max_durability }}）
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

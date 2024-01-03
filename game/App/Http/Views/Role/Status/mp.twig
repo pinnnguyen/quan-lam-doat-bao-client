@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi phải tốn phí nhiều ít khí huyết tiến hành tu luyện?
+    <form action="{{ url(request, 'Role/Status/mpPost') }}" method="post">
+        Nhập khí huyết<input type="text" name="hp">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Role/Status/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

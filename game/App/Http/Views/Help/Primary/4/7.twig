@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Như vậy ngươi đi học sẽ Cơ bản kiếm pháp, hệ thống liền sẽ cấp ra phía dưới nhắc nhở:
+    <br/>
+    “Ngươi Cơ bản kiếm pháp đề cao đến nhị cấp.”
+    <br/>
+    Thỉnh điểm đánh “Tiếp tục”, đồng dạng quá trình, chúng ta học tập đặc thù kiếm pháp, thí dụ như học được hồi phong phất liễu kiếm
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/8') }}">Tiếp tục</a>
+    <br/>
+    Về các hạng võ công thuyết minh thỉnh xem<a href="{{ url(request, 'Help/Primary/description/4/12') }}">Giới thiệu về võ thuật</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

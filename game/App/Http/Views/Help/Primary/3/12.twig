@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Sau đó nhập nội dung bạn muốn nói, chẳng hạn như "Haha".
+    <br/>
+    Bạn muốn nói gì: Haha <a href="{{ url(request, 'Help/Primary/description/3/13') }}">Xác nhận</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

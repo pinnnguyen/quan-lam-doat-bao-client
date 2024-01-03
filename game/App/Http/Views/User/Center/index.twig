@@ -1,0 +1,41 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <img src="{{ config('Game', 'LOGO') }}" alt="LOGO" width="160px" height="100px"/>
+    <br/>
+    Trò chơi trực tuyến trên thiết bị di động số một Trung Quốc với hàng nghìn người trực tuyến,
+    <br />
+    Nơi này có rượu, có kiếm, có nữ nhân.
+    <br />
+    Có tình cảm mãnh liệt, có giết chóc, nơi này chính là di động thượng giang hồ.
+    <br />
+    <a href="{{ url(request, enterGameUrl) }}">Vào đấu trường</a> ||
+    <a href="{{ url(request, 'Map/Index/delivery/8') }}">Tân Thủ Thôn</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Top/index') }}">Xếp Hạng</a>
+    {% if request.roleRow.name != '无名氏' %}
+        || <a href="{{ url(request, 'Map/Index/delivery/6') }}">Trường An khách điếm</a>
+    {% endif %}
+    <br/>
+    <a href="{{ url(request, 'Func/Storage/index') }}">Tùy thân kho hàng</a>
+    <br/>
+    【Giang hồ thông cáo】
+    <br/>
+    2022 năm 10 nguyệt 1 ngày chính thức Mở ra không xóa đương nội trắc. Tài trợ quyên tặng nhưng liên hệ QQ đàn đàn chủ.
+    <br/>
+    QQ đàn hào:<a href="{{ config('Game', 'QQ_GROUP_LINK') }}">{{ config('Game', 'QQ_GROUP') }}</a>
+    <br/>
+    Trò chơi địa chỉ web:<a href="{{ config('Game', 'ADDRESS') }}">{{ config('Game', 'ADDRESS') }}</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trợ giúp công lược</a>
+    <br/>
+    {% if is_manager %}
+        <a href="{{ url(request, 'Manage/Index/index') }}">Trò chơi quản lý</a> | <a href="{{ url(request, 'Manage/Index/roleList') }}">Người chơi quản lý</a>
+        <br/>
+    {% endif %}
+    ========
+    <br/>
+    <a href="{{ url(request, 'User/Center/alterPassword') }}">Đổi mật khẩu</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/logout') }}">Đăng xuất</a>
+{% endblock %}

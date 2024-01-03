@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi lấy ra một{{ thing.row.unit }}{{ thing.row.name }},Thợ rèn nhìn liếc mắt một cái nói: Vị này đại hiệp, này {{ thing.rowunit }}{{ thing.row.name }} Tu hảo nó đến muốn {{ price }} mới được.
+    <br/>
+    <a href="{{ url(request, fixUrl) }}">Xác định sửa chữa</a>
+    <br/>
+    <a href="{{ url(request, 'Func/Fix/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

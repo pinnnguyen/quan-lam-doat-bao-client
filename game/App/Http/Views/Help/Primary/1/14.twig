@@ -1,0 +1,25 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Trang bị Lực công kích có thể tăng sát thương cho địch trong quá trình chiến đấu, còn Lực phòng ngự có thể giảm sát thương khi địch đánh bạn. Trang bị sẽ có Bền Độ, số bên trái là Bền Độ hiện tại, còn bên phải là độ bền tối đa được trang bị trong quá trình chiến đấu, độ bền của vũ khí sẽ giảm, khi giảm xuống một nửa giá trị tối đa thì lực công kích và lực phòng ngự của vũ khí sẽ giảm, lúc này thiết bị cần được sửa chữa. Liên kết loại bỏ sẽ giữ cho vật phẩm vẫn ở trạng thái hiện tại. Trên mặt đất hiện trường, lắp ráp nó một cách nhanh chóng.)
+    <br/>
+    Một phen trúc kiếm
+    <br/>
+    Đây là một thanh kiếm tre dùng để luyện kiếm.
+    <br/>
+    Lực công kích：2
+    <br/>
+    Lực phòng ngự：0
+    <br/>
+    Bền độ：316/316
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/15') }}">Lắp đặt</a>
+    <br/>
+    Ném đi
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

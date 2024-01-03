@@ -1,0 +1,35 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    一{{ thing.row.unit }}{{ thing.row.name }}
+    <br/>
+    {{ thing.row.description }}
+    <br/>
+    {% if thing.row.kind == '装备' %}
+        {% if thing.row.attack %}
+            Lực công kích: {{ thing.row.attack }}
+            <br/>
+        {% endif %}
+        {% if thing.row.defence %}
+            Lực phòng ngự: {{ thing.row.defence }}
+            <br/>
+        {% endif %}
+        {% if thing.row.dodge %}
+            Né tránh lực: {{ thing.row.dodge }}
+            <br/>
+        {% endif %}
+        Bền độ: {{ thing.durability }}/{{ thing.row.max_durability }}
+        <br/>
+        Mới tinh độ: {{ thing.statusString }}
+        <br/>
+        {% if thing.row.is_no_drop %}
+            Đặc hiệu: Không thể rơi xuống
+            <br/>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url(request, thing.popUrl) }}">Lấy ra</a>
+    <br/>
+    <a href="{{ url(request, 'Func/Storage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi đề ra một ngụm chân khí, đôi tay phát kính, dưới chân liền điểm, đạp trên vách núi xông ra cục đá, thả người hướng về phía trước phàn càng.
+    <br/>
+    Ngươi cảm thấy một ngụm chân khí dùng hết, khinh công dần dần vô dụng, chỉ phải một lần nữa tìm kiếm đột ra nham thạch leo lên.
+    <br/>
+        Ngươi mơ hồ cảm thấy chính mình cơ sở khinh công có điều tiến bộ.
+    <br/>
+    ({{ lv }}Cấp/{{ percent }}%)
+    <br/>
+    <a href="{{ url(request, around_url) }}">Nhìn quanh bốn phía</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

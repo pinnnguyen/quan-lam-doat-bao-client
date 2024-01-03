@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trên người của ngươi có thể bán ra tâm pháp:
+    <br/>
+    {% for role_xinfa in role_xinfas %}
+        <a href="{{ url(request, role_xinfa.sellUrl) }}">Một quyển{{ role_xinfa.row.name }}(Thu về giới{{ role_xinfa.price }})</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

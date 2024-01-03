@@ -1,0 +1,29 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Hệ thống trò chuyện chủ yếu được chia thành ba hệ thống trò chuyện chính:
+    <br/>
+    1. Trò chuyện công khai, tức là sau khi phát biểu, tất cả người chơi trong máy chủ đều có thể nhìn thấy và mọi người có thể giao tiếp mọi lúc, mọi nơi.
+    <br/>
+    1. Trò chuyện công khai, nghĩa là tất cả người chơi trong máy chủ đều có thể nhìn thấy sau khi nói. 2. Trò chuyện riêng tư, tức là hai người chơi trò chuyện riêng tư và chỉ cả hai bên mới có thể xem cuộc trò chuyện riêng tư. , mọi người có thể giao tiếp mọi lúc mọi nơi.
+    <br/>
+    3. Gang chat, tức là giao tiếp giữa những người chơi trong cùng một băng nhóm.
+    <br/>
+    Tuy nhiên, cần lưu ý rằng cần phải có giao tiếp văn minh, hợp lý. Chúng tôi cấm bất kỳ ai xuất bản nội dung sau trong trò chơi:
+    <br/>
+    1. Nội dung liên quan đến nội dung khiêu dâm và ma túy.
+    <br/>
+    2. Ngôn ngữ khiêu khích, công kích đội ngũ vận hành game
+    <br/>
+    3. Những chủ đề nhạy cảm về mặt xã hội, những nhận xét tiêu cực liên quan đến đất nước, xã hội, v.v.
+    <br/>
+    3. Những chủ đề nhạy cảm về mặt xã hội, những nhận xét tiêu cực liên quan đến đất nước, xã hội, v.v.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/1') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ message }}
+    <br/>
+    {% if notFound %}
+        <a href="{{ url(request, 'Map/PickUpMoney/index') }}">Tiếp tục tìm</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

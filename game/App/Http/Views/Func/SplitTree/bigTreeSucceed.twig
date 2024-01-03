@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi một tiếng hét to, một chưởng mãnh lực về phía trước đánh ra, đánh rơi xuống không ít lá cây……
+    <br/>
+    Ngươi mơ hồ cảm thấy chính mình cơ bản quyền cước có điều tiến bộ.
+    <br/>
+    ({{ lv }}Cấp/{{ percent }}%)
+    <br/>
+    <a href="{{ url(request, 'Func/SplitTree/splitBigTree') }}">Tiếp tục phách thụ</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

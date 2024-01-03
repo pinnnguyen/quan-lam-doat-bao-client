@@ -1,0 +1,55 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Khí huyết:{{ role_attrs.hp }}/{{ role_attrs.maxHp }}
+    <br/>
+    Nội lực:{{ role_attrs.mp }}/{{ role_attrs.maxMp }}
+    <br/>
+    Tinh thần:{{ role_attrs.jingshen }}/{{ role_attrs.maxJingshen }}
+    <br/>
+    Tiềm năng:{{ role_attrs.qianneng }}/{{ role_attrs.maxQianneng }}
+    <br/>
+    Tu vi:{{ get_hans_experience(role_attrs.experience) }}
+    <br/>
+    Lực công kích：{{ role_attrs.equipmentAttack }}
+    <br/>
+    Lực phòng ngự：{{ role_attrs.equipmentDefence }}
+    <br/>
+    Né tránh lực：{{ role_attrs.equipmentDodge }}
+    <br/>
+    Gấp đôi tu vi, thời gian còn: {{ double_experience_time }} Giây
+    <br/>
+    Gấp đôi tiềm năng, thời gian còn: {{ double_qianneng_time }} Giây
+    <br/>
+    {% if triple_experience_time > 0 %}
+        Gấp 3 tu vi, thời gian còn: {{ triple_experience_time }} Giây
+        <br/>
+    {% endif %}
+    {% if triple_qianneng_time > 0 %}
+        Gấp 3 tiềm năng, thời gian còn: {{ triple_qianneng_time }} Giây
+        <br/>
+    {% endif %}
+    {% if double_xinfa_time > 0 %}
+        Gấp đôi tâm pháp, thời gian còn: {{ double_xinfa_time }} Giây
+        <br/>
+    {% endif %}
+    {% if triple_xinfa_time > 0 %}
+        Gấp 3 tâm pháp, thời gian còn: {{ triple_xinfa_time }} Giây
+        <br/>
+    {% endif %}
+    {% if vip_double_time > 0 %}
+        Gấp đôi VIP, thời gian còn: {{ vip_double_time }} Giây
+        <br/>
+    {% endif %}
+    {% if no_kill_time > 0 %}
+        Kim bài miễn tử, thời gian còn: {{ no_kill_time }} Giây
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Skill/index') }}">Cấu hình kỹ năng</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Status/mp') }}">Rèn luyện nội lực</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

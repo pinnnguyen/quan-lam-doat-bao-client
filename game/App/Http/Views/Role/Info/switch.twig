@@ -1,0 +1,49 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Cài Đặt</a>
+    <a href="{{ url(request, 'Role/Info/save') }}">Lưu trữ dữ liệu</a>
+    <br/>
+    {{ role_title }}{{ role_row.name }}
+    <br/>
+    Hồng danh trị：0
+    <br/>
+    Sát nhân sổ：0
+    <br/>
+    Bị sát sổ:0
+    <br/>
+    Giang hồ danh thanh：0
+    <br/>
+    Ngươi sinh đến phấn mặt môi đỏ, dáng người tuấn tiếu, phong lưu phóng khoáng.
+    <br/>
+    Ngươi thoạt nhìn {{ get_hans_number(role_age) }} tuổi.
+    <br/>
+    Ngươi võ công thoạt nhìn giống như {{ wugong_description }}，{{ attack_description }}。
+    <br/>
+    Ngươi {{ status_description }}。
+    <br/>
+    {% if equipments is not empty %}
+        Ngươi mang：
+        <br/>
+        {% for equipment in equipments %}
+            {% if equipment.is_no_drop %}
+                □「{{ equipment.name }}」
+                <br/>
+            {% else %}
+                □{{ equipment.name }}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if skill_status is not empty %}
+        Cấp độ kỹ năng
+        <br/>
+        {% for status in skill_status %}
+            {{ status.base_skill_name }}{% if status.sect_skill_name is not empty %}（{{ status.sect_skill_name }}）{% endif %}：{{ status.comprehensive_lv }}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

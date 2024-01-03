@@ -1,0 +1,12 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+   Vị này đại hiệp, ngươi giúp ta đi【{{ mission.regionName }}】 của 【{{ map.name }}】Giáo huấn một lần【{{ npc.name }}】，Trở về tại hạ tất có thâm tạ!!
+    <br/>
+    <button class="link" onclick="window.location.href='{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}'">Làm mới nhiệm vụ</button>
+    {#    <a href="{{ url(request, 'Map/ConsecutiveMission/changeQuestion') }}">Làm mới nhiệm vụ</a> #}
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

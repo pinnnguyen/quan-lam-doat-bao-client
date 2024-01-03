@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Bạn đã nhặt thanh kiếm tre sau khi nhấp vào vật phẩm. Hãy đi xem Đồ Đạc. Nó đã có trên người bạn rồi.)
+    <br/>
+    Trúc kiếm
+    <br/>
+    Đây là một phen luyện tập kiếm pháp dùng trúc kiếm.
+    <br/>
+        Ngươi đem trúc kiếm nhặt lên.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/13') }}">Đồ Đạc</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

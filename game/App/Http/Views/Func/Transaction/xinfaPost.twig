@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Hiện tại ngươi dục lấy{{ price }}Giá cả bán cho{{ o_role_row.name }}Một quyển{{ role_xinfa.row.name }}。
+    <br/>
+    Chờ đợi{{ o_role_row.name }}Đáp lại
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

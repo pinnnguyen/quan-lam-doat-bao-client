@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Click vào link vật phẩm của cảnh để xem trong cảnh có những vật phẩm gì. Bấm vào một vật phẩm và nó thuộc về bạn. Hãy nhanh tay nhặt thanh kiếm tre lên nhé.)
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/12') }}">Một phen trúc kiếm</a>
+    <br/>
+    Một phen trúc đao
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

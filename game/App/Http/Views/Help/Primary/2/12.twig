@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    (Tại đây bạn có thể sửa đổi biệt danh, là danh hiệu của nhân vật võ thuật. Hệ số thoát hiểm cho phép bạn tự động trốn thoát trong khi giao tranh. Vui lòng kiểm tra mô tả thông số sau liên kết tương ứng để biết hướng dẫn chi tiết.)
+    <br/>
+    Sửa đổi mô tả tham số biệt hiệu
+    <br/>
+    Đặt mô tả tham số hệ số thoát
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/2/11') }}">Trở lại cá nhân tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

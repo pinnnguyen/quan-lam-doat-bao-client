@@ -1,0 +1,46 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    【{{ npc_title }}】{{ npc_row.name }}
+    <br/>
+    {{ npc_row.description }}
+    <br/>
+    {{ npc_row.appearance }}
+    <br/>
+    {{ ta }} Thoạt nhìn {{ get_hans_number(npc_age) }} hơn tuổi.
+    <br/>
+    {{ ta }} Võ công thoạt nhìn giống như {{ wugong_description }}，{{ attack_description }}。
+    <br/>
+    {{ ta }}{{ status_description }}。
+    <br/>
+    {% if equipments is not empty %}
+        {{ ta }} Trên người có chứa:
+        <br/>
+        {% for equipment in equipments %}
+            {% if equipment.is_no_drop %}
+                □「{{ equipment.name }}」
+                <br/>
+            {% else %}
+                □{{ equipment.name }}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if actions is not empty %}
+        {% for action in actions %}
+            <a href="{{ url(request, action.url) }}">{{ action.name }}</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    {% if qfl is not empty %}<a href="{{ url(request, qfl.url) }}">{{ qfl.name }}</a>{% else %}<a
+        href="{{ url(request, dialogue_url) }}">Đối thoại</a>{% endif %} | <a href="{{ url(request, give_url) }}">Cho</a>
+    <br/>
+
+
+    <a href="{{ url(request, kill_url) }}">Giết chóc</a> | <a href="{{ url(request, duel_url) }}">Luận bàn</a>
+    <br/>
+
+    <a href="{{ url(request, 'Map/View/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

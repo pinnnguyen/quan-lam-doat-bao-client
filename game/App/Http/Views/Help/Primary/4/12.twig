@@ -1,0 +1,22 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Các võ thuật trong game được chia thành võ thuật cơ bản và võ thuật đặc biệt, sau đây sẽ giới thiệu chi tiết tới các bạn.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/13') }}">Cơ bản võ công</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/20') }}">Đặc thù võ công</a>
+    <br/>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/10') }}">Võ công phối hợp</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/21') }}">Hữu hiệu cấp bậc</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/4/22') }}">Sử dụng võ công</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

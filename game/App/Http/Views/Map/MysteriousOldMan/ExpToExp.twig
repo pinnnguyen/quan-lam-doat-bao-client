@@ -1,0 +1,11 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi đã đem {{ year }} năm tu hành chuyển hóa{{ exp }} điểm tâm pháp kinh nghiệm.
+    <br/>
+    <a href="{{ url(request, 'Map/MysteriousOldMan/ExpToExpQuestion') }}">Tiếp tục chuyển hóa</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

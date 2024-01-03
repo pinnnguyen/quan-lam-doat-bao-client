@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Trong bóng đêm, đột nhiên bên tai truyền đến “Xuy xuy” tiếng xé gió!
+    <br/>
+    Nguyên lai là phòng luyện công trung cơ quan phóng ra ra ám khí.
+    <br/>
+    Không ngờ ngươi nhanh tay lẹ mắt, thân mình một bên, dùng trong tay binh khí ngăn.
+    <br/>
+    Ngươi tại đây một cách bên trong tựa hồ đối hủy đi chiêu giảm bớt lực chi kỹ có điểm tâm đắc.
+    <br/>
+    Ngươi “Cơ bản chống đỡ” tiến bộ.
+    <br/>
+    ({{ lv }}Cấp/{{ percent }}%)
+    <br/>
+    <a href="{{ url(request, 'Func/Liangong/yu') }}">Tiếp tục luyện công</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

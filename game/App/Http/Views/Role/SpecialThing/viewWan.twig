@@ -1,0 +1,25 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ dj.row.name }}
+    <br/>
+    {{ dj.row.description }}
+    <br/>
+    {{ dj.row.status }}
+    <br/>
+    Đặc hiệu: Không thể rơi xuống
+    <br/>
+    Hiệu ứng đặc biệt: không thể loại bỏ
+    <br/>
+    Hiệu ứng: Không thể giao dịch
+    <br/>
+    Hiệu ứng đặc biệt: Không thể đưa ra
+    <br/>
+    {% if dj.useUrl is not empty %}
+        <a href="{{ url(request, dj.useUrl) }}">Sử dụng</a>
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Role/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ question }}
+    <br/>
+    {% for answer in answers %}
+        <a href="{{ url(request, answer.url) }}">{{ answer.name }}</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Answer/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

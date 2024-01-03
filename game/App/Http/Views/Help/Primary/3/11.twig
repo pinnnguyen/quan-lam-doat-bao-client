@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ví dụ: nếu bạn muốn chào người chơi trực tuyến Tôi là Cloud, vui lòng nhấp vào「Gửi tin nhắn」。
+    <br/>
+    Mình là Yun nữ. Add làm bạn. <a href="{{ url(request, 'Help/Primary/description/3/12') }}">Gửi tin nhắn</a>
+    <br/>
+    Mình là Phong nam. Add làm bạn bè nhé. Gửi tin nhắn
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

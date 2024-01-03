@@ -1,0 +1,18 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+<form action="{{ url(request, 'Manage/Index/roleList') }}" method="post">
+    <input type="text" name="keyword" placeholder="Vui lòng nhập tên vai trò bạn muốn tìm kiếm"/><input type="submit" value="Tìm kiếm">
+</form>
+    {%  for role in roleList %}
+        <a href="{{ url(request, 'Manage/Mail/thing') }}">{{role.name}}</a>（<a href="{{ url(request, role.bannedUrl) }}">Lệnh cấm</a> | <a href="{{ url(request, role.unbanUrl) }}">Mở khóa</a>）
+    <br/>
+    {% endfor %}
+
+    <a href="{{ url(request, last_page) }}">Trang Trước</a>
+    <a href="{{ url(request, next_page) }}">Trang Sau</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi có thể hướng cửa hàng tiểu nhị mua sắm dưới đây tâm pháp:
+    <br/>
+    {% for xinfa in xinfas %}
+        <a href="{{ url(request, xinfa.viewUrl) }}">Một quyển{{ xinfa.name }}({{ xinfa.price }})</a>
+        <br/>
+    {% endfor %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

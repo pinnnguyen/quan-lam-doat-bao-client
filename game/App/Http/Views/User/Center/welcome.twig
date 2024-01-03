@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <img src="{{ config('Game', 'LOGO') }}" alt="LOGO" width="160px" height="100px"/>
+    <br/>
+    Thiên hạ anh hùng ra chúng ta, vừa vào giang hồ năm tháng thúc giục.
+    <br/>
+    Hoàng đồ bá nghiệp đàm tiếu gian, không thắng nhân sinh một hồi say.
+    <br/>
+    <span style="color: #ff0000; font-weight: bold;">{{ username }}</span>,Hoan nghênh ngài trở về!
+    <br/>
+    ========
+    <br/>
+    <a href="{% if request.roleRow.plot == 1 %}{{ url(request, 'User/Center/index') }}{% else %}{{ url(request, 'User/Plot/step/1') }}{% endif %}">Tiến vào trò chơi</a>
+    <br/>
+    ========
+    <br/>
+    QQ đàn:<a href="{{ config('Game', 'QQ_GROUP_LINK') }}">{{ config('Game', 'QQ_GROUP') }}</a>
+    <br/>
+    Địa chỉ web:<a href="{{ config('Game', 'ADDRESS') }}">{{ config('Game', 'ADDRESS') }}</a>
+{% endblock %}

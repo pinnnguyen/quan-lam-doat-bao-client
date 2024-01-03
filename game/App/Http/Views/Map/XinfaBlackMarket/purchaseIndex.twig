@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Thỉnh lựa chọn mua sắm tâm pháp phân loại:
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchAll') }}">Tìm tất cả</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByKind') }}">Tìm kiếm loại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchByLevel') }}">Tìm kiếm cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySkill') }}">Tìm kiếm kỹ năng</a>
+    <br/>
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/searchBySect') }}">Tìm kiếm võ thuật</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

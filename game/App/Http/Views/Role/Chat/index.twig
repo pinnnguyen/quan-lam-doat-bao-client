@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    <a href="{{ url(request, 'Role/Chat/public') }}">Kênh Chung</a>
+    <br/>
+    Kênh Bang Hội
+    <br/>
+    <a href="{{ url(request, 'Role/Chat/rumour') }}">Kênh Đồn Đại</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Chat/jianghu') }}">Kênh Giang Hồ</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Chat/system') }}">Kênh Hệ Thống</a>
+    <br/>
+    <a href="{{ url(request, 'Role/Contact/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

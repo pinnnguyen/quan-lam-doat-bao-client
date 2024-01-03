@@ -1,0 +1,16 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if things is not empty %}
+        {% for thing in things %}
+            <a href="{{ url(request, thing.viewUrl) }}">{{ thing.name }}</a>
+            <br/>
+        {% endfor %}
+    {% else %}
+         không có nội dung.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

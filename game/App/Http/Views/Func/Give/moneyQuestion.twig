@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    你想赠与{{ o_role_row.name }}bao nhiêu tiền？
+    <form action="{{ url(request, post_url) }}" method="post">
+        Vui lòng nhập số lượng（Đồng tệ）：
+        <br/>
+        <input type="text" name="number">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, back_url) }}">取消</a>
+    <br/>
+    <a href="{{ url(request, back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

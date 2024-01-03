@@ -1,0 +1,16 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if xinfas is not empty %}
+        {% for xinfa in xinfas %}
+            <a href="{{ url(request, xinfa.url) }}">{{ xinfa.row.name }}({{ xinfa.count }})</a>
+            <br/>
+        {% endfor %}
+    {% else %}
+        Chợ đen còn không có người chơi gửi bán loại này tâm pháp.
+        <br/>
+    {% endif %}
+    <a href="{{ url(request, 'Map/XinfaBlackMarket/purchaseIndex') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

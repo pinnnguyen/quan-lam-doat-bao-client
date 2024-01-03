@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngài ở tệ hiệu buôn cùng tồn tại có{{ get_hans_money(balance) }}。
+    <br/>
+    Chọn loại tiền bạn muốn rút!
+    <br/>
+    <a href="{{ url(request, 'Map/Bank/withdraw/1') }}">Hoàng kim</a> |
+    <a href="{{ url(request, 'Map/Bank/withdraw/2') }}">Bạch ngân</a> |
+    <a href="{{ url(request, 'Map/Bank/withdraw/3') }}">Đồng tệ</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

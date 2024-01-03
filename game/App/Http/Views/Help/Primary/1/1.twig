@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Chào mừng bạn đến với thế giới võ thuật, chương đi bộ sẽ giúp bạn làm quen với thế giới này.
+    <br/>
+    Trong trò chơi, bạn là một người trong trò chơi này, thông qua việc học võ, bạn học võ thuật, du lịch vòng quanh thế giới, mở khóa những bí mật của võ thuật và thu được nhiều kho báu khác nhau.
+    <br/>
+    Thế giới này được tạo thành từ các cảnh. Trong mỗi cảnh, bạn có thể:
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Xem cảnh</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/4') }}">Quan sát mọi người</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/11') }}">Xem mặt hàng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

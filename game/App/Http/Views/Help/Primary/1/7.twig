@@ -1,0 +1,15 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Cái này liên tiếp là dùng cho cùng nhân vật nói chuyện với nhau, nếu là NPC, hắn khả năng sẽ nói cho ngươi một ít hữu dụng tin tức, nếu là người chơi, ngươi liền có thể cho hắn phát tại tuyến tin tức cùng hắn nói chuyện phiếm.
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/5') }}">Trở lại nhân vật tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/1/2') }}">Trở lại cảnh tượng</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

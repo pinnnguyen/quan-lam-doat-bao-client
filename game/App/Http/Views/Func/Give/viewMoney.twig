@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ money }}
+    <br/>
+    <a href="{{ url(request, consent_url) }}">Nhận quà tặng</a>
+    <br/>
+    <a href="{{ url(request, refuse_url) }}">Từ chối nhận</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

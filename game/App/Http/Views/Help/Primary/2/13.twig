@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Tức là dữ liệu hiện tại của bạn được lưu lại, hệ thống sẽ lưu lại cho bạn sau mỗi 10 phút và khi bạn rời đi nên chức năng này ít khi được sử dụng (bạn hoàn toàn không cần sử dụng).
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/2/11'Primary/description/2) }}">Trở lại cá nhân tin tức</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

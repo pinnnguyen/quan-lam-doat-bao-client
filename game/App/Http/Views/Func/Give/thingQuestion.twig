@@ -1,0 +1,13 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    你现在想把一{{ role_thing.row.unit }}{{ role_thing.row.name }}赠送给{{ o_role_row.name }}。
+    <br/>
+    <a href="{{ url(request, post_url) }}">Xác định</a>
+    <br/>
+    <a href="{{ url(request, back_url) }}">取消</a>
+    <br/>
+    <a href="{{ url(request, back_url) }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

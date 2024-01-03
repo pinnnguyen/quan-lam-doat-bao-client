@@ -1,0 +1,17 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+[ trò chơi nhân vật ]
+<br/>
+Đổi mà nói chi cũng chính là cá nhân trạng thái, nhân vật tương quan chia làm hai cái:
+<br/>
+1, Trạng thái cơ thể: Trạng thái cơ thể có thể Xem xét người chơi các loại thuộc tính, tỷ như: Sinh mệnh, Nội lực, Nội lực, Tinh thần, Tu hành chờ. Kỹ năng phối trí cũng ở chỗ này.
+<br/>
+2, Cá nhân tin tức: Cá nhân tin tức có thể Xem xét người chơi cơ sở tin tức, tên họ, tuổi, mặc trang bị, kỹ năng chờ...
+    <br/>
+    <a href="{{ url(request, 'Help/Index/index') }}">Trở lại thượng cấp</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

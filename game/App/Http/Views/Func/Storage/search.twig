@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {% if things is empty %}
+        Ngài muốn lấy ra dưới này đó vật phẩm?
+        <br/>
+    {% else %}
+        Không có tìm thấy được bất luận cái gì vật phẩm.
+        <br/>
+        {% for thing in things %}
+            <a href="{{ url(request, thing.viewUrl) }}"> một {{ thing.row.unit }}{{ thing.row.name }}</a> <a
+                href="{{ url(request, thing.popUrl) }}">Lấy ra</a>
+            <br/>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, 'Func/Storage/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trò chơi</a>
+{% endblock %}

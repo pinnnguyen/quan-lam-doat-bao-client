@@ -1,0 +1,21 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Ngươi trước mặt tiền trang cùng tồn tại có:{{ get_hans_money(request.roleRow.bank_balance) }}。
+    <br/>
+    Ngươi trước mặt nhiều nhất nhưng áp chú hai trăm lượng hoàng kim
+    <br/>
+    Ít nhất nhưng áp chú một lượng vàng
+    <br/>
+    Thỉnh đưa vào ngươi tưởng áp chú kim ngạch ( hoàng kim )
+    <form action="{{ url(request, bet_url) }}" method="post">
+        Đưa vào số lượng:
+        <br/>
+        <input type="text" name="number">
+        <br/>
+        <input type="submit" value="Xác định">
+    </form>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}

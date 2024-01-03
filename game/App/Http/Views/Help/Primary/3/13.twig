@@ -1,0 +1,19 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    Bạn nói với tôi đó là Yun: "Haha".
+    <br/>
+    Bên kia sẽ nhận được tin nhắn như vậy, bây giờ hãy nhấn vào "Trở lại" để vào danh sách người dùng trực tuyến và hướng dẫn bạn cách Thêm bạn.
+    <br/>
+    (12:8) [Người lạ] "Cơn lốc nhỏ" Tôi là gió: Haha
+    <br/>
+    Trả lời Thêm làm bạn Thêm vào danh sách đen
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/description/3/1') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Help/Primary/index') }}">Trở lại trang đầu</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+    <br/>
+    <a href="{{ url(request, 'User/Center/index') }}">Trở lại trang đầu</a>
+{% endblock %}

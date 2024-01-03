@@ -1,0 +1,65 @@
+{% extends "Base/parent.twig" %}
+
+{% block body %}
+    {{ role_title }}{{ role_row.name }}
+{#    {% if vip > 7 %}#}
+{#        <span style="color: purple; font-weight: bolder;">[VIP{{ vip }}]</span>#}
+{#    {% elseif vip > 4 %}#}
+{#        <span style="color: red; font-weight: bolder;">[VIP{{ vip }}]</span>#}
+{#    {% elseif vip > 0 %}#}
+{#        <span style="color: orange; font-weight: bolder;">[VIP{{ vip }}]</span>#}
+{#    {% else %}#}
+{#        [VIP{{ vip }}]#}
+{#    {% endif %}#}
+    <br/>
+    Hồng danh trị：{{ role_row.red }}
+    <br/>
+    Sát nhân sổ：{{ role_row.kills }}
+    <br/>
+    Bị sát sổ:{{ role_row.killed }}
+    <br/>
+    Giang hồ danh thanh：0
+    <br/>
+    {{ ta }}{{ role_row.appearance }}
+    <br/>
+    {{ ta }} Thoạt nhìn {{ get_hans_number(role_age) }} hơn tuổi.
+    <br/>
+    {{ ta }} Võ công thoạt nhìn giống như {{ wugong_description }}，{{ attack_description }}。
+    <br/>
+    {{ ta }}{{ status_description }}。
+    <br/>
+    {% if equipments is not empty %}
+        {{ ta }}Trên người có chứa:
+        <br/>
+        {% for equipment in equipments %}
+            {% if equipment.is_no_drop %}
+                □「{{ equipment.name }}」
+                <br/>
+            {% else %}
+                □{{ equipment.name }}
+                <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url(request, send_url) }}">Đối thoại</a>
+    <br/>
+    <a href="{{ url(request, trade_url) }}">Giao dịch</a>
+    <br/>
+    <a href="{{ url(request, give_url) }}">Cho</a>
+    <br/>
+    <a href="{{ url(request, kill_url) }}">Giết chóc</a>
+    <br/>
+    {% if follow_url is not empty %}
+        <a href="{{ url(request, follow_url) }}">Thêm bạn</a>
+        <br/>
+    {% endif %}
+    {% if un_follow_url is not empty %}
+        <a href="{{ url(request, unfollow_url) }}">Xóa bạn bè</a>
+        <br/>
+    {% endif %}
+    Mời đội
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại</a>
+    <br/>
+    <a href="{{ url(request, 'Map/Index/index') }}">Trở lại trò chơi</a>
+{% endblock %}
